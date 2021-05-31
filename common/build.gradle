@@ -1,5 +1,5 @@
 plugins {
-    id 'com.android.application'
+    id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
 }
@@ -9,17 +9,7 @@ android {
     compileSdkVersion cfgs.compileSdkVersion
     buildToolsVersion cfgs.buildToolsVersion
 
-    signingConfigs {
-        signing {
-            storeFile file(sign.file)
-            storePassword sign.storePassword
-            keyAlias sign.keyAlias
-            keyPassword sign.keyPassword
-        }
-    }
-
     defaultConfig {
-        applicationId "com.suromo.millionaire"
         minSdkVersion cfgs.minSdkVersion
         targetSdkVersion cfgs.targetSdkVersion
         versionCode cfgs.versionCode
@@ -27,13 +17,11 @@ android {
 
         testInstrumentationRunner cfgs.testInstrumentationRunner
         consumerProguardFiles cfgs.consumerProguardFiles
-        signingConfig signingConfigs.signing
     }
 
     buildTypes {
         release {
             minifyEnabled true // 混淆
-            shrinkResources true // 去除无用资源 与lint不同
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
@@ -54,6 +42,7 @@ android {
 }
 
 dependencies {
+
     implementation des.coreKtx
     implementation des.appcompat
     implementation des.material
@@ -70,5 +59,4 @@ dependencies {
     testImplementation des.junit
     androidTestImplementation des.extJunit
     androidTestImplementation des.espressoCore
-    implementation project(':common')
 }
