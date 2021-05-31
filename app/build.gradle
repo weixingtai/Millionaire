@@ -66,6 +66,9 @@ dependencies {
     implementation des.retrofitGson
     implementation des.okhttp3
     implementation des.viewPager2
+    implementation des.koin
+    implementation des.koinScope
+    implementation des.koinViewModel
 
     testImplementation des.junit
     androidTestImplementation des.extJunit
