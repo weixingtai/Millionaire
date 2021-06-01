@@ -70,6 +70,7 @@ dependencies {
     implementation des.koinScope
     implementation des.koinViewModel
     implementation des.cookieJar
+    implementation des.eventbus
 
     testImplementation des.junit
     androidTestImplementation des.extJunit

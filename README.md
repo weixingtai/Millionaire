@@ -3,3 +3,5 @@
 
 依赖注入框架：koin
 网络请求：retrofit + Coroutine
+
+事件总线：eventbus

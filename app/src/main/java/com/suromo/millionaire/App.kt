@@ -3,6 +3,7 @@ package com.suromo.millionaire
 import android.app.Application
 import android.content.Context
 import com.suromo.millionaire.di.appModule
+import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import kotlin.properties.Delegates
@@ -32,5 +33,12 @@ class App : Application() {
             modules(appModule)
         }
 
+        EventBus.getDefault().register(this@App)
+
+    }
+
+    override fun onTerminate() {
+        super.onTerminate()
+        EventBus.getDefault().unregister(this@App)
     }
 }
