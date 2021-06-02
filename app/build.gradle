@@ -76,4 +76,5 @@ dependencies {
     androidTestImplementation des.extJunit
     androidTestImplementation des.espressoCore
     implementation project(':common')
+    implementation project(':link')
 }
