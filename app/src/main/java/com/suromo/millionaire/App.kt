@@ -2,11 +2,14 @@ package com.suromo.millionaire
 
 import android.app.Application
 import android.content.Context
+import com.orhanobut.logger.AndroidLogAdapter
+import com.orhanobut.logger.Logger
 import com.suromo.millionaire.di.appModule
 import org.greenrobot.eventbus.EventBus
 import org.koin.android.ext.koin.androidContext
 import org.koin.core.context.startKoin
 import kotlin.properties.Delegates
+
 
 /**
  * author : weixingtai
@@ -34,6 +37,8 @@ class App : Application() {
         }
 
         EventBus.getDefault().register(this@App)
+
+        Logger.addLogAdapter(AndroidLogAdapter())
 
     }
 
