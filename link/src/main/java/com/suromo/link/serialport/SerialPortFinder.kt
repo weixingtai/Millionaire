@@ -1,66 +1,75 @@
-package com.suromo.link.serialport;
+package com.suromo.link.serialport
 
-import android.util.Log;
-
-import java.io.File;
-import java.io.FileReader;
-import java.io.IOException;
-import java.io.LineNumberReader;
-import java.util.ArrayList;
-
-public class SerialPortFinder {
-
-    private static final String TAG = SerialPortFinder.class.getSimpleName();
-    private static final String DRIVERS_PATH = "/proc/tty/drivers";
-    private static final String SERIAL_FIELD = "serial";
-
-    public SerialPortFinder() {
-        File file = new File(DRIVERS_PATH);
-        boolean b = file.canRead();
-        Log.i(TAG, "SerialPortFinder: file.canRead() = " + b);
-    }
-
+import com.orhanobut.logger.Logger
+import com.suromo.link.serialport.bean.Device
+import com.suromo.link.serialport.bean.Driver
+import java.io.File
+import java.io.FileReader
+import java.io.IOException
+import java.io.LineNumberReader
+import java.util.*
+/**
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : 串口交互类，打开、关闭串口及修改文件权限
+ */
+class SerialPortFinder {
     /**
      * 获取 Drivers
      *
      * @return Drivers
      * @throws IOException IOException
      */
-    private ArrayList<Driver> getDrivers() throws IOException {
-        ArrayList<Driver> drivers = new ArrayList<>();
-        LineNumberReader lineNumberReader = new LineNumberReader(new FileReader(DRIVERS_PATH));
-        String readLine;
-        while ((readLine = lineNumberReader.readLine()) != null) {
-            String driverName = readLine.substring(0, 0x15).trim();
-            String[] fields = readLine.split(" +");
-            if ((fields.length >= 5) && (fields[fields.length - 1].equals(SERIAL_FIELD))) {
-                Log.d(TAG, "Found new driver " + driverName + " on " + fields[fields.length - 4]);
-                drivers.add(new Driver(driverName, fields[fields.length - 4]));
+    @get:Throws(IOException::class)
+    private val drivers: ArrayList<Driver>
+        private get() {
+            val drivers = ArrayList<Driver>()
+            val lineNumberReader = LineNumberReader(FileReader(DRIVERS_PATH))
+            var readLine: String
+            while (lineNumberReader.readLine().also { readLine = it } != null) {
+                val driverName = readLine.substring(0, 0x15).trim { it <= ' ' }
+                val fields = readLine.split(" +").toTypedArray()
+                if (fields.size >= 5 && fields[fields.size - 1] == SERIAL_FIELD) {
+                    Logger.d("Found new driver " + driverName + " on " + fields[fields.size - 4])
+                    drivers.add(Driver(driverName, fields[fields.size - 4]))
+                }
             }
+            return drivers
         }
-        return drivers;
-    }
 
     /**
      * 获取串口
      *
      * @return 串口
      */
-    public ArrayList<Device> getDevices() {
-        ArrayList<Device> devices = new ArrayList<>();
-        try {
-            ArrayList<Driver> drivers = getDrivers();
-            for (Driver driver : drivers) {
-                String driverName = driver.getName();
-                ArrayList<File> driverDevices = driver.getDevices();
-                for (File file : driverDevices) {
-                    String devicesName = file.getName();
-                    devices.add(new Device(devicesName, driverName, file));
+    val devices: ArrayList<Device>
+        get() {
+            val devices = ArrayList<Device>()
+            try {
+                val drivers = drivers
+                for (driver in drivers) {
+                    val driverName = driver.name
+                    val driverDevices = driver.devices
+                    for (file in driverDevices) {
+                        val devicesName = file.name
+                        devices.add(Device(devicesName, driverName, file))
+                    }
                 }
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
-        } catch (IOException e) {
-            e.printStackTrace();
+            return devices
         }
-        return devices;
+
+    companion object {
+        private const val DRIVERS_PATH = "/proc/tty/drivers"
+        private const val SERIAL_FIELD = "serial"
+    }
+
+    init {
+        val file = File(DRIVERS_PATH)
+        val b = file.canRead()
+        Logger.i("SerialPortFinder: file.canRead() = $b")
     }
 }

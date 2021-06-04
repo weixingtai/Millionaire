@@ -1,78 +1,66 @@
-package com.suromo.link.serialport.thread;
+package com.suromo.link.serialport.thread
 
-import android.util.Log;
-
-import java.io.IOException;
-import java.io.InputStream;
+import android.util.Log
+import java.io.IOException
+import java.io.InputStream
 
 /**
- * Created by Kongqw on 2017/11/14.
- * 串口消息读取线程
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : Device
  */
-
-public abstract class SerialPortReadThread extends Thread {
-
-    public abstract void onDataReceived(byte[] bytes);
-
-    private static final String TAG = SerialPortReadThread.class.getSimpleName();
-    private InputStream mInputStream;
-    private byte[] mReadBuffer;
-
-    public SerialPortReadThread(InputStream inputStream) {
-        mInputStream = inputStream;
-        mReadBuffer = new byte[1024];
-    }
-
-    @Override
-    public void run() {
-        super.run();
-
-        while (!isInterrupted()) {
+abstract class SerialPortReadThread(private var mInputStream: InputStream?) : Thread() {
+    abstract fun onDataReceived(bytes: ByteArray?)
+    private val mReadBuffer: ByteArray
+    override fun run() {
+        super.run()
+        while (!isInterrupted) {
             try {
                 if (null == mInputStream) {
-                    return;
+                    return
                 }
-
-                Log.i(TAG, "run: ");
-                int size = mInputStream.read(mReadBuffer);
-
+                Log.i(TAG, "run: ")
+                val size = mInputStream!!.read(mReadBuffer)
                 if (-1 == size || 0 >= size) {
-                    return;
+                    return
                 }
-
-                byte[] readBytes = new byte[size];
-
-                System.arraycopy(mReadBuffer, 0, readBytes, 0, size);
-
-                Log.i(TAG, "run: readBytes = " + new String(readBytes));
-                onDataReceived(readBytes);
-
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
+                val readBytes = ByteArray(size)
+                System.arraycopy(mReadBuffer, 0, readBytes, 0, size)
+                Log.i(TAG, "run: readBytes = " + String(readBytes))
+                onDataReceived(readBytes)
+            } catch (e: IOException) {
+                e.printStackTrace()
+                return
             }
         }
     }
 
-    @Override
-    public synchronized void start() {
-        super.start();
+    @Synchronized
+    override fun start() {
+        super.start()
     }
 
     /**
      * 关闭线程 释放资源
      */
-    public void release() {
-        interrupt();
-
+    fun release() {
+        interrupt()
         if (null != mInputStream) {
             try {
-                mInputStream.close();
-                mInputStream = null;
-            } catch (IOException e) {
-                e.printStackTrace();
+                mInputStream!!.close()
+                mInputStream = null
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
         }
+    }
 
+    companion object {
+        private val TAG = SerialPortReadThread::class.java.simpleName
+    }
+
+    init {
+        mReadBuffer = ByteArray(1024)
     }
 }

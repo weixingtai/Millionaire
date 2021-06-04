@@ -1,23 +1,23 @@
-package com.suromo.link.serialport.listener;
+package com.suromo.link.serialport.listener
 
 /**
- * Created by Kongqw on 2017/11/14.
- * 串口消息监听
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : Device
  */
-
-public interface OnSerialPortDataListener {
-
+interface OnSerialPortDataListener {
     /**
      * 数据接收
      *
      * @param bytes 接收到的数据
      */
-    void onDataReceived(byte[] bytes);
+    fun onDataReceived(bytes: ByteArray)
 
     /**
      * 数据发送
      *
      * @param bytes 发送的数据
      */
-    void onDataSent(byte[] bytes);
+    fun onDataSent(bytes: ByteArray)
 }

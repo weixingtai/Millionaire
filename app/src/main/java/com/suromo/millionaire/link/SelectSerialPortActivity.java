@@ -9,7 +9,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.suromo.link.serialport.Device;
+import com.suromo.link.serialport.bean.Device;
 import com.suromo.link.serialport.SerialPortFinder;
 import com.suromo.millionaire.R;
 import com.suromo.millionaire.link.adapter.DeviceAdapter;

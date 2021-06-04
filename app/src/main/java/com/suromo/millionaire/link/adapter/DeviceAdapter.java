@@ -7,7 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
-import com.suromo.link.serialport.Device;
+import com.suromo.link.serialport.bean.Device;
 import com.suromo.millionaire.R;
 
 import java.io.File;

@@ -12,7 +12,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.suromo.link.serialport.Device;
+import com.suromo.link.serialport.bean.Device;
 import com.suromo.link.serialport.SerialPortManager;
 import com.suromo.link.serialport.listener.OnOpenSerialPortListener;
 import com.suromo.link.serialport.listener.OnSerialPortDataListener;

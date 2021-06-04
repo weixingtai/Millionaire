@@ -1,20 +1,17 @@
-package com.suromo.link.serialport.listener;
+package com.suromo.link.serialport.listener
 
-import java.io.File;
+import java.io.File
 
 /**
- * Created by Kongqw on 2017/11/14.
- * 打开串口监听
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : Device
  */
-
-public interface OnOpenSerialPortListener {
-
-    void onSuccess(File device);
-
-    void onFail(File device, Status status);
-
-    enum Status {
-        NO_READ_WRITE_PERMISSION,
-        OPEN_FAIL
+interface OnOpenSerialPortListener {
+    fun onSuccess(device: File)
+    fun onFail(device: File, status: Status)
+    enum class Status {
+        NO_READ_WRITE_PERMISSION, OPEN_FAIL
     }
 }

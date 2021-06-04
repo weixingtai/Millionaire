@@ -1,16 +1,20 @@
-package com.suromo.link.serialport;
+package com.suromo.link.serialport
 
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.IOException;
+import java.io.File
+import java.io.FileDescriptor
+import java.io.IOException
 
-public class SerialPort {
+/**
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : 串口交互类，打开、关闭串口及修改文件权限
+ */
+open class SerialPort {
 
-    static {
-        System.loadLibrary("SerialPort");
+    init {
+        System.loadLibrary("SerialPort")
     }
-
-    private static final String TAG = SerialPort.class.getSimpleName();
 
     /**
      * 文件设置最高权限 777 可读 可写 可执行
@@ -18,30 +22,32 @@ public class SerialPort {
      * @param file 文件
      * @return 权限修改是否成功
      */
-    boolean chmod777(File file) {
-        if (null == file || !file.exists()) {
-            // 文件不存在
-            return false;
+    fun chmod777(file: File): Boolean {
+        // 文件不存在
+        if (!file.exists()) {
+            return false
         }
         try {
             // 获取ROOT权限
-            Process su = Runtime.getRuntime().exec("/system/bin/su");
+            val su = Runtime.getRuntime().exec("/system/bin/su")
             // 修改文件属性为 [可读 可写 可执行]
-            String cmd = "chmod 777 " + file.getAbsolutePath() + "\n" + "exit\n";
-            su.getOutputStream().write(cmd.getBytes());
+            val cmd = "chmod 777 " + file.absolutePath + "\n" + "exit\n"
+            su.outputStream.write(cmd.toByteArray())
             if (0 == su.waitFor() && file.canRead() && file.canWrite() && file.canExecute()) {
-                return true;
+                return true
             }
-        } catch (IOException | InterruptedException e) {
+        } catch (e: IOException) {
             // 没有ROOT权限
-            e.printStackTrace();
+            e.printStackTrace()
+        } catch (e: InterruptedException) {
+            e.printStackTrace()
         }
-        return false;
+        return false
     }
 
     // 打开串口
-    protected native FileDescriptor open(String path, int baudRate, int flags);
+    protected external fun open(path: String, baudRate: Int, flags: Int): FileDescriptor
 
     // 关闭串口
-    protected native void close();
+    protected external fun close()
 }

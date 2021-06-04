@@ -1,38 +1,29 @@
-package com.suromo.link.serialport;
+package com.suromo.link.serialport
 
-import android.os.Handler;
-import android.os.HandlerThread;
-import android.os.Message;
-import android.util.Log;
-
-
-import com.suromo.link.serialport.listener.OnOpenSerialPortListener;
-import com.suromo.link.serialport.listener.OnSerialPortDataListener;
-import com.suromo.link.serialport.thread.SerialPortReadThread;
-
-import java.io.File;
-import java.io.FileDescriptor;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
+import android.os.Handler
+import android.os.HandlerThread
+import android.os.Message
+import com.orhanobut.logger.Logger
+import com.suromo.link.serialport.listener.OnOpenSerialPortListener
+import com.suromo.link.serialport.listener.OnSerialPortDataListener
+import com.suromo.link.serialport.thread.SerialPortReadThread
+import java.io.*
 
 /**
- * Created by Kongqw on 2017/11/13.
- * SerialPortManager
+ * author : weixingtai
+ * e-mail : xingtai.wei@icloud.com
+ * time  : 2021/6/1
+ * desc  : 串口交互类，打开、关闭串口及修改文件权限
  */
-
-public class SerialPortManager extends SerialPort {
-
-    private static final String TAG = SerialPortManager.class.getSimpleName();
-    private FileInputStream mFileInputStream;
-    private FileOutputStream mFileOutputStream;
-    private FileDescriptor mFd;
-    private OnOpenSerialPortListener mOnOpenSerialPortListener;
-    private OnSerialPortDataListener mOnSerialPortDataListener;
-
-    private HandlerThread mSendingHandlerThread;
-    private Handler mSendingHandler;
-    private SerialPortReadThread mSerialPortReadThread;
+class SerialPortManager : SerialPort() {
+    private var mFileInputStream: FileInputStream? = null
+    private var mFileOutputStream: FileOutputStream? = null
+    private var mFd: FileDescriptor? = null
+    private var mOnOpenSerialPortListener: OnOpenSerialPortListener? = null
+    private var mOnSerialPortDataListener: OnSerialPortDataListener? = null
+    private var mSendingHandlerThread: HandlerThread? = null
+    private var mSendingHandler: Handler? = null
+    private var mSerialPortReadThread: SerialPortReadThread? = null
 
     /**
      * 打开串口
@@ -41,79 +32,78 @@ public class SerialPortManager extends SerialPort {
      * @param baudRate 波特率
      * @return 打开是否成功
      */
-    public boolean openSerialPort(File device, int baudRate) {
-
-        Log.i(TAG, "openSerialPort: " + String.format("打开串口 %s  波特率 %s", device.getPath(), baudRate));
+    fun openSerialPort(device: File, baudRate: Int): Boolean {
+        Logger.i("openSerialPort: " + String.format("打开串口 %s  波特率 %s", device.path, baudRate))
 
         // 校验串口权限
         if (!device.canRead() || !device.canWrite()) {
-            boolean chmod777 = chmod777(device);
+            val chmod777 = chmod777(device)
             if (!chmod777) {
-                Log.i(TAG, "openSerialPort: 没有读写权限");
+                Logger.i("openSerialPort: 没有读写权限")
                 if (null != mOnOpenSerialPortListener) {
-                    mOnOpenSerialPortListener.onFail(device, OnOpenSerialPortListener.Status.NO_READ_WRITE_PERMISSION);
+                    mOnOpenSerialPortListener!!.onFail(
+                        device,
+                        OnOpenSerialPortListener.Status.NO_READ_WRITE_PERMISSION
+                    )
                 }
-                return false;
+                return false
             }
         }
-
         try {
-            mFd = open(device.getAbsolutePath(), baudRate, 0);
-            mFileInputStream = new FileInputStream(mFd);
-            mFileOutputStream = new FileOutputStream(mFd);
-            Log.i(TAG, "openSerialPort: 串口已经打开 " + mFd);
+            mFd = open(device.absolutePath, baudRate, 0)
+            mFileInputStream = FileInputStream(mFd)
+            mFileOutputStream = FileOutputStream(mFd)
+            Logger.i("openSerialPort: 串口已经打开 $mFd")
             if (null != mOnOpenSerialPortListener) {
-                mOnOpenSerialPortListener.onSuccess(device);
+                mOnOpenSerialPortListener!!.onSuccess(device)
             }
             // 开启发送消息的线程
-            startSendThread();
+            startSendThread()
             // 开启接收消息的线程
-            startReadThread();
-            return true;
-        } catch (Exception e) {
-            e.printStackTrace();
+            startReadThread()
+            return true
+        } catch (e: Exception) {
+            e.printStackTrace()
             if (null != mOnOpenSerialPortListener) {
-                mOnOpenSerialPortListener.onFail(device, OnOpenSerialPortListener.Status.OPEN_FAIL);
+                mOnOpenSerialPortListener!!.onFail(
+                    device,
+                    OnOpenSerialPortListener.Status.OPEN_FAIL
+                )
             }
         }
-        return false;
+        return false
     }
 
     /**
      * 关闭串口
      */
-    public void closeSerialPort() {
-
+    fun closeSerialPort() {
         if (null != mFd) {
-            close();
-            mFd = null;
+            close()
+            mFd = null
         }
         // 停止发送消息的线程
-        stopSendThread();
+        stopSendThread()
         // 停止接收消息的线程
-        stopReadThread();
-
+        stopReadThread()
         if (null != mFileInputStream) {
             try {
-                mFileInputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                mFileInputStream!!.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
-            mFileInputStream = null;
+            mFileInputStream = null
         }
-
         if (null != mFileOutputStream) {
             try {
-                mFileOutputStream.close();
-            } catch (IOException e) {
-                e.printStackTrace();
+                mFileOutputStream!!.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
             }
-            mFileOutputStream = null;
+            mFileOutputStream = null
         }
-
-        mOnOpenSerialPortListener = null;
-
-        mOnSerialPortDataListener = null;
+        mOnOpenSerialPortListener = null
+        mOnSerialPortDataListener = null
     }
 
     /**
@@ -122,9 +112,9 @@ public class SerialPortManager extends SerialPort {
      * @param listener listener
      * @return SerialPortManager
      */
-    public SerialPortManager setOnOpenSerialPortListener(OnOpenSerialPortListener listener) {
-        mOnOpenSerialPortListener = listener;
-        return this;
+    fun setOnOpenSerialPortListener(listener: OnOpenSerialPortListener?): SerialPortManager {
+        mOnOpenSerialPortListener = listener
+        return this
     }
 
     /**
@@ -133,71 +123,68 @@ public class SerialPortManager extends SerialPort {
      * @param listener listener
      * @return SerialPortManager
      */
-    public SerialPortManager setOnSerialPortDataListener(OnSerialPortDataListener listener) {
-        mOnSerialPortDataListener = listener;
-        return this;
+    fun setOnSerialPortDataListener(listener: OnSerialPortDataListener?): SerialPortManager {
+        mOnSerialPortDataListener = listener
+        return this
     }
 
     /**
      * 开启发送消息的线程
      */
-    private void startSendThread() {
+    private fun startSendThread() {
         // 开启发送消息的线程
-        mSendingHandlerThread = new HandlerThread("mSendingHandlerThread");
-        mSendingHandlerThread.start();
+        mSendingHandlerThread = HandlerThread("mSendingHandlerThread")
+        mSendingHandlerThread!!.start()
         // Handler
-        mSendingHandler = new Handler(mSendingHandlerThread.getLooper()) {
-            @Override
-            public void handleMessage(Message msg) {
-                byte[] sendBytes = (byte[]) msg.obj;
-
-                if (null != mFileOutputStream && null != sendBytes && 0 < sendBytes.length) {
+        mSendingHandler = object : Handler(mSendingHandlerThread!!.looper) {
+            override fun handleMessage(msg: Message) {
+                val sendBytes = msg.obj as ByteArray
+                if (null != mFileOutputStream && null != sendBytes && 0 < sendBytes.size) {
                     try {
-                        mFileOutputStream.write(sendBytes);
+                        mFileOutputStream!!.write(sendBytes)
                         if (null != mOnSerialPortDataListener) {
-                            mOnSerialPortDataListener.onDataSent(sendBytes);
+                            mOnSerialPortDataListener!!.onDataSent(sendBytes)
                         }
-                    } catch (IOException e) {
-                        e.printStackTrace();
+                    } catch (e: IOException) {
+                        e.printStackTrace()
                     }
                 }
             }
-        };
+        }
     }
 
     /**
      * 停止发送消息线程
      */
-    private void stopSendThread() {
-        mSendingHandler = null;
+    private fun stopSendThread() {
+        mSendingHandler = null
         if (null != mSendingHandlerThread) {
-            mSendingHandlerThread.interrupt();
-            mSendingHandlerThread.quit();
-            mSendingHandlerThread = null;
+            mSendingHandlerThread!!.interrupt()
+            mSendingHandlerThread!!.quit()
+            mSendingHandlerThread = null
         }
     }
 
     /**
      * 开启接收消息的线程
      */
-    private void startReadThread() {
-        mSerialPortReadThread = new SerialPortReadThread(mFileInputStream) {
-            @Override
-            public void onDataReceived(byte[] bytes) {
+    private fun startReadThread() {
+        mSerialPortReadThread = object : SerialPortReadThread(mFileInputStream) {
+            override fun onDataReceived(bytes: ByteArray?) {
                 if (null != mOnSerialPortDataListener) {
-                    mOnSerialPortDataListener.onDataReceived(bytes);
+                    mOnSerialPortDataListener!!.onDataReceived(bytes!!)
                 }
             }
-        };
-        mSerialPortReadThread.start();
+        }
+        (mSerialPortReadThread as SerialPortReadThread).start()
     }
 
     /**
      * 停止接收消息的线程
      */
-    private void stopReadThread() {
+    private fun stopReadThread() {
         if (null != mSerialPortReadThread) {
-            mSerialPortReadThread.release();
+            mSerialPortReadThread!!.release()
         }
     }
 
@@ -207,14 +194,14 @@ public class SerialPortManager extends SerialPort {
      * @param sendBytes 发送数据
      * @return 发送是否成功
      */
-    public boolean sendBytes(byte[] sendBytes) {
+    fun sendBytes(sendBytes: ByteArray?): Boolean {
         if (null != mFd && null != mFileInputStream && null != mFileOutputStream) {
             if (null != mSendingHandler) {
-                Message message = Message.obtain();
-                message.obj = sendBytes;
-                return mSendingHandler.sendMessage(message);
+                val message = Message.obtain()
+                message.obj = sendBytes
+                return mSendingHandler!!.sendMessage(message)
             }
         }
-        return false;
+        return false
     }
 }
