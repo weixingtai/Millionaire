@@ -9,9 +9,9 @@ import java.io.File
  * desc  : Device
  */
 interface OnOpenSerialPortListener {
-    fun onSuccess(device: File)
-    fun onFail(device: File, status: Status)
     enum class Status {
         NO_READ_WRITE_PERMISSION, OPEN_FAIL
     }
+    fun onSuccess(device: File)
+    fun onFail(device: File, status: Status)
 }
