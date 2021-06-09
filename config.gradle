@@ -1,6 +1,6 @@
 ext {
 
-    isAlone = true;//false:作为Lib组件存在， true:作为application存在
+//    isAlone = true;//false:作为Lib组件存在， true:作为application存在
 
     cfgs = [
             compileSdkVersion        : 30,
@@ -38,7 +38,7 @@ ext {
             franmontiel  : "com.github.franmontiel:PersistentCookieJar:v1.0.1",
 
             //other
-            banner       : "com.youth.banner:banner:2.1.0",
+            banner       : 'io.github.youth5201314:banner:2.2.2',
             glide        : "com.github.bumptech.glide:glide:4.11.0",
             koin         : "org.koin:koin-android:2.0.1",
             koinScope    : "org.koin:koin-androidx-scope:2.0.1",
@@ -48,6 +48,9 @@ ext {
             roundedImage : 'com.makeramen:roundedimageview:2.3.0',
             cookieJar    : 'com.github.franmontiel:PersistentCookieJar:v1.0.1',
             eventbus     : 'org.greenrobot:eventbus:3.1.1',
+            okdownload   : 'com.liulishuo.okdownload:okhttp:1.0.7',
+            indicator    : 'com.github.hackware1993:MagicIndicator:1.7.0',
+            autosize     : 'me.jessyan:autosize:1.2.1',
 
             //test
             junit        : "junit:junit:4.13.1",
