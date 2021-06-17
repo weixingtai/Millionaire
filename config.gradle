@@ -51,6 +51,8 @@ ext {
             okdownload   : 'com.liulishuo.okdownload:okhttp:1.0.7',
             indicator    : 'com.github.hackware1993:MagicIndicator:1.7.0',
             autosize     : 'me.jessyan:autosize:1.2.1',
+            rxandroid    : 'io.reactivex.rxjava2:rxandroid:2.0.1',
+            rxkotlin    : 'io.reactivex.rxjava2:rxkotlin:2.2.0',
 
             //test
             junit        : "junit:junit:4.13.1",

@@ -36,7 +36,6 @@ class App : Application() {
             modules(appModule)
         }
 
-        EventBus.getDefault().register(this@App)
 
         Logger.addLogAdapter(AndroidLogAdapter())
 
@@ -44,6 +43,5 @@ class App : Application() {
 
     override fun onTerminate() {
         super.onTerminate()
-        EventBus.getDefault().unregister(this@App)
     }
 }

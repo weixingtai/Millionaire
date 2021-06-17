@@ -72,6 +72,8 @@ dependencies {
     implementation des.cookieJar
     implementation des.eventbus
     implementation des.logger
+    implementation des.rxkotlin
+    implementation des.rxandroid
 
     testImplementation des.junit
     androidTestImplementation des.extJunit
