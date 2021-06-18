@@ -1,22 +1,27 @@
 package com.suromo.common.utils
 
+import android.os.Environment
 import android.util.Log
 import com.suromo.common.BuildConfig
 import org.json.JSONArray
 import org.json.JSONException
 import org.json.JSONObject
-import java.io.StringReader
-import java.io.StringWriter
+import java.io.*
+import java.text.SimpleDateFormat
+import java.util.*
 import javax.xml.transform.*
 import javax.xml.transform.stream.StreamResult
 import javax.xml.transform.stream.StreamSource
 
 class MLog {
 
+
+
     companion object{
         private val DEBUG = BuildConfig.DEBUG
         var TAG = "MLog"
-
+        var PATH = Environment.getExternalStorageDirectory().path +"/millionaire/mLog.txt"
+        var SDF = SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS", Locale.CHINA)
 
         fun v(verbose: String){
             if (DEBUG) Log.d(TAG,verbose)
@@ -175,11 +180,40 @@ class MLog {
 
 
         fun f(file: String){
-
+            Log.d(TAG,file)
+            val time = Date()
+            val content = SDF.format(time) + "   " + TAG + "   " + file
+            if (!File(PATH).exists()){
+                File(PATH).mkdirs()
+            }
+            val mFile = File(PATH)
+            try {
+                val filerWriter = FileWriter(mFile,true)
+                val bufWriter = BufferedWriter(filerWriter)
+                bufWriter.write(content)
+                bufWriter.newLine()
+                bufWriter.close()
+                filerWriter.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
 
         fun f(tag: String,file: String){
-
+            Log.d(tag,file)
+            val time = Date()
+            val content = SDF.format(time) + "   " + tag + "   " + file
+            val log = File(PATH)
+            try {
+                val filerWriter = FileWriter(log,true)
+                val bufWriter = BufferedWriter(filerWriter)
+                bufWriter.write(content)
+                bufWriter.newLine()
+                bufWriter.close()
+                filerWriter.close()
+            } catch (e: IOException) {
+                e.printStackTrace()
+            }
         }
 
         fun b(bytes: ByteArray){
