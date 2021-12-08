@@ -1,63 +1,6 @@
-plugins {
-    id 'com.android.library'
-    id 'kotlin-android'
-    id 'kotlin-kapt'
-}
-
-android {
-
-    compileSdkVersion cfgs.compileSdkVersion
-    buildToolsVersion cfgs.buildToolsVersion
-
-    defaultConfig {
-        minSdkVersion cfgs.minSdkVersion
-        targetSdkVersion cfgs.targetSdkVersion
-        versionCode cfgs.versionCode
-        versionName cfgs.versionName
-
-        testInstrumentationRunner cfgs.testInstrumentationRunner
-        consumerProguardFiles cfgs.consumerProguardFiles
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled true // 混淆
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-        }
-    }
-
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    buildFeatures {
-        dataBinding true
-        viewBinding true
-    }
-}
+apply plugin: 'com.android.library'
+apply from:'../configs.gradle'
 
 dependencies {
 
-    implementation des.coreKtx
-    implementation des.appcompat
-    implementation des.material
-    implementation des.constraint
-    implementation des.livedata
-    implementation des.viewmodel
-    implementation des.stdlib
-    implementation des.glide
-    implementation des.retrofit
-    implementation des.retrofitGson
-    implementation des.okhttp3
-    implementation des.viewPager2
-    implementation des.logger
-
-    testImplementation des.junit
-    androidTestImplementation des.extJunit
-    androidTestImplementation des.espressoCore
 }

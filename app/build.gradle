@@ -1,33 +1,40 @@
 plugins {
     id 'com.android.application'
     id 'kotlin-android'
-    id 'kotlin-kapt'
+}
+apply from:'../configs.gradle'
+
+static def releaseTime() {
+    return new Date().format("yyyyMMdd-HHmmss", TimeZone.getTimeZone("GMT+8"))
 }
 
 android {
 
-    compileSdkVersion cfgs.compileSdkVersion
-    buildToolsVersion cfgs.buildToolsVersion
+    defaultConfig {
+        applicationId "com.surromo.millionaire"
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a", "x86"
+        }
+//        manifestPlaceholders = [
+//
+//        ]
+    }
 
     signingConfigs {
-        signing {
+        /*debug {
+            storeFile file("xiaoyongyuan.jks")
+            storePassword 'wp112233'
+            keyAlias 'wangzhongya'
+            keyPassword 'wp112233'
+        }*/
+
+        releaseConfig {
             storeFile file(sign.file)
             storePassword sign.storePassword
             keyAlias sign.keyAlias
             keyPassword sign.keyPassword
         }
-    }
-
-    defaultConfig {
-        applicationId "com.suromo.millionaire"
-        minSdkVersion cfgs.minSdkVersion
-        targetSdkVersion cfgs.targetSdkVersion
-        versionCode cfgs.versionCode
-        versionName cfgs.versionName
-
-        testInstrumentationRunner cfgs.testInstrumentationRunner
-        consumerProguardFiles cfgs.consumerProguardFiles
-        signingConfig signingConfigs.signing
     }
 
     buildTypes {
@@ -36,48 +43,20 @@ android {
             shrinkResources true // 去除无用资源 与lint不同
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
+        debug {
+            android.applicationVariants.all { variant ->
+                variant.outputs.all {
+//                    outputFileName = "${variant.buildType.name}-wubo56driver-${defaultConfig.versionCode}-${defaultConfig.versionName}-${releaseTime()}.apk"
+                    outputFileName = "Millionaire_${defaultConfig.versionName}_${releaseTime()}.apk"
+                }
+            }
+        }
     }
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
 
-    kotlinOptions {
-        jvmTarget = '1.8'
-    }
-
-    buildFeatures {
-        dataBinding true
-        viewBinding true
-    }
 }
 
 dependencies {
-    implementation des.coreKtx
-    implementation des.appcompat
-    implementation des.material
-    implementation des.constraint
-    implementation des.livedata
-    implementation des.viewmodel
-    implementation des.stdlib
-    implementation des.glide
-    implementation des.retrofit
-    implementation des.retrofitGson
-    implementation des.okhttp3
-    implementation des.viewPager2
-    implementation des.koin
-    implementation des.koinScope
-    implementation des.koinViewModel
-    implementation des.cookieJar
-    implementation des.eventbus
-    implementation des.logger
-    implementation des.rxkotlin
-    implementation des.rxandroid
 
-    testImplementation des.junit
-    androidTestImplementation des.extJunit
-    androidTestImplementation des.espressoCore
-    implementation project(':common')
-    implementation project(':link')
+
 }
