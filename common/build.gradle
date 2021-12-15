@@ -2,5 +2,9 @@ apply plugin: 'com.android.library'
 apply from:'../configs.gradle'
 
 dependencies {
-
+    implementation des.viewmodel
+    implementation des.stdlib
+    implementation des.retrofit
+    implementation des.retrofitGson
+    implementation des.franmontiel
 }
