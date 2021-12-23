@@ -12,7 +12,7 @@ import com.surromo.common.base.bean.StateLiveData
  */
 open class BaseRepository() {
 
-    suspend fun <T : Any> executeResp(
+    suspend fun <T : Any> request(
         block: suspend () -> BaseResponse<T>,
         stateLiveData: StateLiveData<T>
     ) {

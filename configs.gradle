@@ -26,6 +26,17 @@ dependencies {
     implementation des.appcompat
     implementation des.material
     implementation des.constraint
+    implementation des.logger
+
+    implementation des.viewmodel
+    implementation des.stdlib
+    implementation des.okhttp3
+    implementation des.retrofit
+    implementation des.retrofitGson
+    implementation des.franmontiel
+    implementation des.loadsir
+    implementation des.coroutinesAndroid
+
     testImplementation des.junit
     androidTestImplementation des.extJunit
     androidTestImplementation des.espressoCore
