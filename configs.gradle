@@ -36,6 +36,8 @@ dependencies {
     implementation des.franmontiel
     implementation des.loadsir
     implementation des.coroutinesAndroid
+    implementation des.autoSize
+    implementation des.roundedImage
 
     testImplementation des.junit
     androidTestImplementation des.extJunit

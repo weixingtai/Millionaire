@@ -3,10 +3,29 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_counter_bg_checked.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_counter_bg_normal.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_input_bg.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_launcher_background.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_pwd_hide.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_pwd_show.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_qr_code.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/shape_input_bg.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_login.xml" value="0.30953846153846154" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register.xml" value="0.18333333333333332" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_success.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_vertify_code.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_reset_password_success.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_reset_password_vertify_code.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_user.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/ic_pwd_hide.xml" value="0.15104166666666666" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/ic_pwd_show.xml" value="0.20555555555555555" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/shape_dot_red.xml" value="0.1" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_empty.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_error.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_loading.xml" value="0.18333333333333332" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_text_view.xml" value="0.26197916666666665" />
       </map>
     </option>
   </component>

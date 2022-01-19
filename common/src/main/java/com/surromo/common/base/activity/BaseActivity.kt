@@ -20,9 +20,9 @@ abstract class BaseActivity<DB: ViewDataBinding>(
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initDataBind()
-        initObserve()
         initView()
         initData()
+        initObserve()
     }
 
     private fun initDataBind() {
@@ -30,7 +30,7 @@ abstract class BaseActivity<DB: ViewDataBinding>(
         binding.lifecycleOwner = this
     }
 
-    open fun initObserve(){}
     abstract fun initView()
     abstract fun initData()
+    open fun initObserve(){}
 }

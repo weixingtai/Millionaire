@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:skin="http://schemas.android.com/android/skin"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/rl_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:ignore="MissingPrefix">
+
+    <ImageView
+        android:id="@+id/iv_left_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        tools:src="@drawable/ic_pwd_hide" />
+
+    <View
+        android:id="@+id/v_left_tip"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_marginTop="10dp"
+        android:layout_toRightOf="@id/iv_left_img"
+        android:background="@drawable/shape_dot_red"
+        android:visibility="gone" />
+
+    <TextView
+        android:id="@+id/tv_left_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_toRightOf="@id/v_left_tip"
+        android:paddingLeft="10dp"
+        android:textColor="#333333"
+        android:textSize="17sp"
+        android:textStyle="bold"
+        skin:enable="true"
+        tools:text="我的订阅" />
+
+    <ImageView
+        android:id="@+id/iv_right_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
+        android:paddingRight="10dp"
+
+        tools:src="@drawable/ic_pwd_hide" />
+
+    <TextView
+        android:id="@+id/tv_right_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="10dp"
+        android:layout_toLeftOf="@id/iv_right_img"
+        android:paddingRight="5dp"
+        android:textColor="#ACACAC"
+        android:textSize="13sp"
+        android:textStyle="bold"
+        tools:text="34.8M" />
+
+    <View
+        android:id="@+id/v_line_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:layout_alignParentBottom="true"
+        android:background="#EDEDED" />
+
+    <View
+        android:id="@+id/v_line_top"
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#EDEDED"
+        android:visibility="gone" />
+</RelativeLayout>
+

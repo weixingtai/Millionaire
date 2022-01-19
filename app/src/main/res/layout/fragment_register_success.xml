@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/ic_logo"
+            android:contentDescription="@string/app_name"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="160dp"
+            android:layout_marginStart="30dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/theme_main"
+            android:text="@string/register_success"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="30dp"
+            android:layout_marginStart="30dp"
+            android:textSize="13sp"
+            android:textColor="@color/text_sub"
+            android:text="@string/click_the_button_below_to_continue"/>
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="61dp"
+                android:layout_marginTop="80dp"
+                android:src="@mipmap/ic_step_next"
+                android:contentDescription="@string/next"/>
+
+    </LinearLayout>
+</layout>

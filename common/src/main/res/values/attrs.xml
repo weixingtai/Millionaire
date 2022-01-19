@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="MTextView">
+        <!--左图-->
+        <attr name="leftImage" format="reference" />
+        <!--右图-->
+        <attr name="rightImage" format="reference" />
+        <!--左边文字-->
+        <attr name="leftText" format="reference|string" />
+        <!--右边文字-->
+        <attr name="rightText" format="reference|string" />
+        <!--右边hint-->
+        <attr name="rightHintText" format="reference|string" />
+        <!--左边文字颜色-->
+        <attr name="leftTextColor" format="color|reference" />
+        <!--右边文字颜色-->
+        <attr name="rightTextColor" format="color|reference" />
+        <!--右边hint颜色-->
+        <attr name="rightHintColor" format="color|reference" />
+        <!--左边文字大小-->
+        <attr name="leftTextSize" format="reference|dimension" />
+        <!--右边文字大小-->
+        <attr name="rightTextSize" format="reference|dimension" />
+        <!--是否显示分割线-->
+        <attr name="showBottomLine" format="reference|boolean" />
+        <!--是否显示上分割线-->
+        <attr name="showTopLine" format="reference|boolean" />
+        <!--线的颜色-->
+        <attr name="lineColor" format="color" />
+        <!--线的背景-->
+        <attr name="lineBg" format="reference" />
+        <!--分割线左右间距-->
+        <attr name="lineLeftMargin" format="reference|dimension" />
+        <attr name="lineRightMargin" format="reference|dimension" />
+        <!--左边文字左边的间距-->
+        <attr name="leftTextLeftPadding" format="reference|dimension" />
+    </declare-styleable>
+</resources>

@@ -31,13 +31,13 @@ abstract class BaseFragment<VDB: ViewDataBinding>(@LayoutRes val resId: Int) : F
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        initObserve()
         initView()
         initData()
+        initObserve()
         super.onViewCreated(view, savedInstanceState)
     }
 
-    abstract fun initObserve()
     abstract fun initView()
-    open fun initData(){}
+    abstract fun initData()
+    open fun initObserve(){}
 }

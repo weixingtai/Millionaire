@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <data>
+
+    </data>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center_horizontal"
+        android:orientation="vertical">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:src="@mipmap/ic_logo"
+            android:contentDescription="@string/app_name"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:textSize="30sp"
+            android:textStyle="bold"
+            android:textColor="@color/theme_main"
+            android:text="@string/register"/>
+
+        <EditText
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="67dp"
+            android:hint="@string/e_mail"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:textSize="18sp"
+            android:paddingStart="30dp"
+            android:paddingEnd="30dp"
+            android:textColorHint="@color/white_half_transparent"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_input_bg"
+            android:singleLine="true"
+            android:maxLength="30"
+            android:imeOptions="actionNext"/>
+        <com.surromo.common.widget.MEditText
+            android:layout_width="match_parent"
+            android:layout_height="54dp"
+            android:layout_marginTop="30dp"
+            android:hint="@string/password"
+            android:textSize="18sp"
+            android:layout_marginLeft="50dp"
+            android:layout_marginRight="50dp"
+            android:paddingStart="30dp"
+            android:singleLine="true"
+            android:maxLength="25"
+            android:textColorHint="@color/white_half_transparent"
+            android:textColor="@color/white"
+            android:background="@drawable/shape_input_bg"
+            android:paddingEnd="25dp"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="100dp">
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="61dp"
+                android:src="@mipmap/ic_step_previous"
+                android:layout_marginEnd="150dp"
+                android:contentDescription="@string/next"/>
+            <ImageView
+                android:layout_width="61dp"
+                android:layout_height="61dp"
+                android:src="@mipmap/ic_step_next"
+                android:contentDescription="@string/next"/>
+        </LinearLayout>
+
+
+    </LinearLayout>
+</layout>
