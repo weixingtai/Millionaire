@@ -24,6 +24,8 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_home.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_login.xml" value="0.30953846153846154" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_moment.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_dispatch.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_taking.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_success.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_vertify_code.xml" value="0.26197916666666665" />
@@ -32,6 +34,7 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_user.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/menu/top_nav_menu.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/menu/top_post_menu.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/ic_pwd_hide.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/ic_pwd_show.xml" value="0.20555555555555555" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/drawable/shape_dot_red.xml" value="0.1" />

@@ -5,9 +5,108 @@
 
     </data>
     <LinearLayout
-        android:layout_height="match_parent"
         android:layout_width="match_parent"
-        android:orientation="vertical"
-        android:background="@color/page_main">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/main_toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:background="?attr/colorPrimaryVariant"
+            app:layout_constraintBottom_toTopOf="@id/main_nhf"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:orientation="horizontal">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_location"
+                    android:layout_gravity="center"/>
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="深圳市"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="10dp"
+                    android:textSize="14sp"
+                    android:textColor="@color/white"/>
+            </LinearLayout>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:text="@string/home"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:layout_gravity="center"
+                android:gravity="center"/>
+        </androidx.appcompat.widget.Toolbar>
+        <ScrollView
+            android:layout_height="match_parent"
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:background="@color/page_main">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <com.youth.banner.Banner
+                    android:id="@+id/homeBanner"
+                    android:layout_width="match_parent"
+                    android:layout_height="180dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"/>
+                <androidx.coordinatorlayout.widget.CoordinatorLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeBanner">
+
+                    <com.google.android.material.appbar.AppBarLayout
+                        android:id="@+id/discovery_abl"
+                        android:layout_width="match_parent"
+                        android:layout_height="?actionBarSize"
+                        android:theme="@style/ThemeOverlay.MaterialComponents.Dark.ActionBar">
+
+                        <com.google.android.material.tabs.TabLayout
+                            android:id="@+id/discovery_tl"
+                            android:layout_width="match_parent"
+                            android:layout_height="?actionBarSize"
+                            app:tabGravity="center"
+                            app:tabIndicatorColor="@color/theme_main"
+                            app:tabBackground="@null"
+                            app:tabRippleColor="@null"
+                            app:tabMode="scrollable" />
+
+                    </com.google.android.material.appbar.AppBarLayout>
+
+                    <androidx.viewpager2.widget.ViewPager2
+                        android:id="@+id/discovery_vp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_margin="5dp"
+                        app:layout_behavior="@string/appbar_scrolling_view_behavior" />
+
+                </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+                <androidx.appcompat.widget.SearchView
+                    android:id="@+id/discovery_sv"
+                    android:layout_width="wrap_content"
+                    android:layout_height="?actionBarSize"
+                    android:background="@color/white"
+                    android:maxWidth="500dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/homeBanner"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        </ScrollView>
     </LinearLayout>
+
 </layout>

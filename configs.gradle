@@ -38,6 +38,7 @@ dependencies {
     implementation des.coroutinesAndroid
     implementation des.autoSize
     implementation des.roundedImage
+    implementation des.banner
 
     testImplementation des.junit
     androidTestImplementation des.extJunit
