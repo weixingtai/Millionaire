@@ -64,7 +64,15 @@ ext {
             junit        : "junit:junit:4.13.2",
             extJunit     : "androidx.test.ext:junit:1.1.3",
             espressoCore : "androidx.test.espresso:espresso-core:3.4.0",
-            autoSize     : "com.github.JessYanCoding:AndroidAutoSize:v1.2.1"
+            autoSize     : "com.github.JessYanCoding:AndroidAutoSize:v1.2.1",
+
+            quickAdapter : "com.github.CymChad:BaseRecyclerViewAdapterHelper:3.0.7",
+
+            //refresh
+            refreshLayout:  "com.scwang.smart:refresh-layout-kernel:2.0.3",
+            refreshHeader: "com.scwang.smart:refresh-header-classics:2.0.3"
+
+
     ]
 
     sign = [

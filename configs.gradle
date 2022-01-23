@@ -39,6 +39,9 @@ dependencies {
     implementation des.autoSize
     implementation des.roundedImage
     implementation des.banner
+    implementation des.quickAdapter
+    implementation des.refreshLayout
+    implementation des.refreshHeader
 
     testImplementation des.junit
     androidTestImplementation des.extJunit

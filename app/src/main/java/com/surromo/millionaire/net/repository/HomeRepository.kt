@@ -1,8 +1,10 @@
 package com.surromo.millionaire.net.repository
 
+import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.bean.StateLiveData
 import com.surromo.common.base.repository.BaseRepository
 import com.surromo.millionaire.bean.home.BannerData
+import com.surromo.millionaire.bean.home.OrderDispatchBean
 import com.surromo.millionaire.net.service.HomeService
 
 /**
@@ -18,5 +20,17 @@ class HomeRepository(private val service: HomeService) : BaseRepository() {
      */
     suspend fun getBanner(bannerLiveData: StateLiveData<List<BannerData>>) {
         request({ service.getBanner() }, bannerLiveData)
+    }
+
+    suspend fun getDispatchOrder(
+        pageNo: Int,
+        stateLiveData: StateLiveData<BasePagingResponse<ArrayList<OrderDispatchBean>>>,
+        isShowLoading : Boolean = false
+    ) {
+        request(
+            { service.getDispatchOrder(pageNo) },
+            stateLiveData,
+            isShowLoading
+        )
     }
 }

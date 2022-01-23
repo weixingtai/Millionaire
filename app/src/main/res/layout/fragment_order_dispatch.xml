@@ -9,5 +9,9 @@
         android:layout_width="match_parent"
         android:orientation="vertical"
         android:background="@color/page_main">
+
+        <include
+            android:id="@+id/include_rv"
+            layout="@layout/include_recycler_view"/>
     </LinearLayout>
 </layout>

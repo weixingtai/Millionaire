@@ -3,6 +3,7 @@ package com.surromo.millionaire.di
 import com.surromo.common.network.RetrofitManager
 import com.surromo.millionaire.net.repository.HomeRepository
 import com.surromo.millionaire.net.service.HomeService
+import com.surromo.millionaire.ui.viewmodel.home.OrderDispatchViewModel
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.dsl.module
 
@@ -13,7 +14,7 @@ import org.koin.dsl.module
  * desc  : TODO
  */
 val viewModelModule = module {
-
+    viewModel { OrderDispatchViewModel(get()) }
 
 }
 
