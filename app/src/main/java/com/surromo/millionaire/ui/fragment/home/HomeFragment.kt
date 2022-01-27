@@ -21,12 +21,12 @@ import com.youth.banner.indicator.CircleIndicator
  */
 class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
-    private val mTypeList = mutableListOf("派单","接单")
+    private lateinit var mTypeList : MutableList<String>
     private var mFragmentList: MutableList<Fragment> = mutableListOf()
 
 
     override fun initView() {
-
+        mTypeList = mutableListOf(getString(R.string.order_dispatch),getString(R.string.order_taking))
         initViewPager()
         binding.mainToolbar.inflateMenu(R.menu.top_post_menu)
 

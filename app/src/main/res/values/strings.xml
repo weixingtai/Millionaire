@@ -22,4 +22,14 @@
     <string name="friend">Friend</string>
     <string name="user">User</string>
     <string name="login">Login</string>
+    <string name="info">Info</string>
+    <string name="pay">Pay</string>
+    <string name="homepage">Homepage</string>
+    <string name="order">Order</string>
+    <string name="trade">Trade</string>
+    <string name="identification">Identification</string>
+    <string name="setting">Setting</string>
+    <string name="spread">Spread</string>
+    <string name="order_dispatch">Order Dispatch</string>
+    <string name="order_taking">Order Taking</string>
 </resources>

@@ -3,6 +3,7 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_arrow_left.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_counter_bg_checked.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_counter_bg_normal.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_friend.xml" value="0.15104166666666666" />
@@ -22,17 +23,28 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_friend.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_home.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_homepage.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_identification.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_info.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_login.xml" value="0.30953846153846154" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_moment.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_dispatch.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_taking.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_pay.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_success.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_vertify_code.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_reset_password_success.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_reset_password_vertify_code.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_setting.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_spread.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_trade.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_user.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/include_recycler_view.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/include_recyclerview.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/include_tool_bar.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/include_toolbar.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/item_order_dispatch.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/menu/bottom_nav_menu.xml" value="0.1" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/menu/top_nav_menu.xml" value="0.26197916666666665" />

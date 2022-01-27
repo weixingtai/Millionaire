@@ -11,29 +11,30 @@
         android:orientation="vertical"
         android:background="@color/page_main">
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/main_toolbar"
+            android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            app:layout_constraintBottom_toTopOf="@id/main_nhf"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            android:background="?attr/colorPrimaryVariant">
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            android:theme="@style/AppTheme.AppBarOverlay"
+            app:layout_scrollFlags="scroll|enterAlways"
+            app:popupTheme="@style/AppTheme.PopupOverlay" >
             <TextView
+                android:id="@+id/tv_page_title"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:text="@string/user"
                 android:textColor="@color/white"
                 android:textSize="18sp"
+                android:text="@string/user"
                 android:layout_gravity="center"
                 android:gravity="center"/>
         </androidx.appcompat.widget.Toolbar>
         <RelativeLayout
+            android:id="@+id/rl_user_info"
             android:layout_width="match_parent"
             android:layout_height="128dp"
             android:background="@color/white">
             <com.makeramen.roundedimageview.RoundedImageView
-                android:id="@+id/rivAvatar"
+                android:id="@+id/riv_user_avatar"
                 android:layout_width="74dp"
                 android:layout_height="74dp"
                 android:src="@mipmap/ic_logo"
@@ -41,34 +42,36 @@
                 android:layout_marginStart="20dp"
                 android:layout_marginEnd="20dp"/>
             <TextView
-                android:id="@+id/tvNickname"
+                android:id="@+id/tv_user_nick_name"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:textColor="@color/text_black"
-                android:layout_alignTop="@id/rivAvatar"
-                android:layout_toEndOf="@id/rivAvatar"
+                android:layout_alignTop="@id/riv_user_avatar"
+                android:layout_toEndOf="@id/riv_user_avatar"
                 android:layout_marginTop="10dp"
                 android:text="独家记忆"/>
 
             <TextView
+                android:id="@+id/tv_user_account"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_alignBottom="@id/rivAvatar"
+                android:layout_alignBottom="@id/riv_user_avatar"
                 android:layout_marginBottom="10dp"
-                android:layout_toEndOf="@id/rivAvatar"
+                android:layout_toEndOf="@id/riv_user_avatar"
                 android:text="账号:charles_bravo"
                 android:textColor="@color/text_main"
                 android:textSize="14sp" />
 
             <ImageView
-                android:id="@+id/ivInfoRight"
+                android:id="@+id/iv_user_info_edit"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:src="@drawable/ic_arrow_right"
                 android:layout_centerVertical="true"
                 android:layout_alignParentEnd="true"
+                android:contentDescription=""
                 android:layout_marginEnd="20dp"/>
             <ImageView
                 android:id="@+id/ivQrCode"
@@ -77,32 +80,36 @@
                 android:src="@drawable/ic_qr_code"
                 android:layout_marginEnd="10dp"
                 android:layout_centerVertical="true"
-                android:layout_toStartOf="@id/ivInfoRight"/>
+                android:contentDescription=""
+                android:layout_toStartOf="@id/iv_user_info_edit"/>
         </RelativeLayout>
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_pay"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            app:leftText="支付"
+            app:leftText="@string/pay"
             app:leftImage="@drawable/ic_pay"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_home_page"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            app:leftText="主页"
+            app:leftText="@string/homepage"
             app:leftImage="@drawable/ic_home_page"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>
 
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_order"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@color/white"
@@ -110,51 +117,55 @@
             android:paddingEnd="10dp"
             app:showTopLine="true"
             app:leftImage="@drawable/ic_order"
-            app:leftText="订单"
+            app:leftText="@string/order"
             app:leftTextLeftPadding="20dp"
             app:rightImage="@drawable/ic_arrow_right" />
 
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_trade"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             app:showTopLine="true"
-            app:leftText="交易"
+            app:leftText="@string/trade"
             app:leftImage="@drawable/ic_shop_cart"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_identification"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
             app:showTopLine="true"
-            app:leftText="认证"
+            app:leftText="@string/identification"
             app:leftImage="@drawable/ic_identification"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_setting"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            app:leftText="设置"
+            app:leftText="@string/setting"
             app:leftImage="@drawable/ic_setting"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>
         <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_user_spread"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:layout_marginTop="10dp"
             android:background="@color/white"
             android:paddingStart="10dp"
             android:paddingEnd="10dp"
-            app:leftText="推广"
+            app:leftText="@string/spread"
             app:leftImage="@drawable/ic_spread"
             app:rightImage="@drawable/ic_arrow_right"
             app:leftTextLeftPadding="20dp"/>

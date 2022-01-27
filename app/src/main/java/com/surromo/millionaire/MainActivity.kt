@@ -14,6 +14,7 @@ import com.surromo.millionaire.databinding.ActivityMainBinding
 class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
 
     override fun initView() {
+        supportActionBar?.hide()
         val mainBnv: BottomNavigationView = binding.mainBnv
         val navController = findNavController(R.id.main_nhf)
 
@@ -29,12 +30,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(R.layout.activity_main) {
                 || destination.id == R.id.nav_friend || destination.id == R.id.nav_user
             ) {
                 mainBnv.visibility = View.VISIBLE
-                supportActionBar?.hide()
+
             } else {
                 mainBnv.visibility = View.GONE
-                supportActionBar?.show()
             }
         }
+
     }
 
     override fun initData() {

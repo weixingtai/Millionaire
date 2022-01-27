@@ -31,7 +31,64 @@
         android:id="@+id/nav_user"
         android:name="com.surromo.millionaire.ui.fragment.user.UserFragment"
         android:label="@string/user"
-        tools:layout="@layout/fragment_user" />
+        tools:layout="@layout/fragment_user" >
+        <action
+            android:id="@+id/action_user_to_info"
+            app:destination="@id/nav_info"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_pay"
+            app:destination="@id/nav_pay"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_homepage"
+            app:destination="@id/nav_homepage"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_order"
+            app:destination="@id/nav_order"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_trade"
+            app:destination="@id/nav_trade"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_identification"
+            app:destination="@id/nav_identification"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_setting"
+            app:destination="@id/nav_setting"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_user_to_spread"
+            app:destination="@id/nav_spread"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+    </fragment>
 
     <fragment
         android:id="@+id/nav_login"
@@ -39,4 +96,44 @@
         android:label="@string/login"
         tools:layout="@layout/fragment_login" >
     </fragment>
+    <fragment
+        android:id="@+id/nav_info"
+        android:name="com.surromo.millionaire.ui.fragment.user.InfoFragment"
+        android:label="@string/info"
+        tools:layout="@layout/fragment_info"/>
+    <fragment
+        android:id="@+id/nav_pay"
+        android:name="com.surromo.millionaire.ui.fragment.pay.PayFragment"
+        android:label="@string/pay"
+        tools:layout="@layout/fragment_pay"/>
+    <fragment
+        android:id="@+id/nav_homepage"
+        android:name="com.surromo.millionaire.ui.fragment.homepage.HomepageFragment"
+        android:label="@string/homepage"
+        tools:layout="@layout/fragment_homepage"/>
+    <fragment
+        android:id="@+id/nav_order"
+        android:name="com.surromo.millionaire.ui.fragment.order.OrderFragment"
+        android:label="@string/order"
+        tools:layout="@layout/fragment_order"/>
+    <fragment
+        android:id="@+id/nav_trade"
+        android:name="com.surromo.millionaire.ui.fragment.trade.TradeFragment"
+        android:label="@string/trade"
+        tools:layout="@layout/fragment_trade"/>
+    <fragment
+        android:id="@+id/nav_identification"
+        android:name="com.surromo.millionaire.ui.fragment.identification.IdentificationFragment"
+        android:label="@string/identification"
+        tools:layout="@layout/fragment_identification"/>
+    <fragment
+        android:id="@+id/nav_setting"
+        android:name="com.surromo.millionaire.ui.fragment.setting.SettingFragment"
+        android:label="@string/setting"
+        tools:layout="@layout/fragment_setting"/>
+    <fragment
+        android:id="@+id/nav_spread"
+        android:name="com.surromo.millionaire.ui.fragment.spread.SpreadFragment"
+        android:label="@string/spread"
+        tools:layout="@layout/fragment_spread"/>
 </navigation>

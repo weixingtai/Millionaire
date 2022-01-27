@@ -22,4 +22,14 @@
     <string name="friend">朋友</string>
     <string name="user">我的</string>
     <string name="login">登录</string>
+    <string name="info">信息</string>
+    <string name="pay">支付</string>
+    <string name="homepage">主页</string>
+    <string name="order">订单</string>
+    <string name="trade">交易</string>
+    <string name="identification">认证</string>
+    <string name="setting">设置</string>
+    <string name="spread">推广</string>
+    <string name="order_dispatch">派单</string>
+    <string name="order_taking">接单</string>
 </resources>
