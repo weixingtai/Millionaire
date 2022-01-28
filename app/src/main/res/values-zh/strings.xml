@@ -32,4 +32,11 @@
     <string name="spread">推广</string>
     <string name="order_dispatch">派单</string>
     <string name="order_taking">接单</string>
+    <string name="avatar">头像</string>
+    <string name="nickname">昵称</string>
+    <string name="account">账号</string>
+    <string name="gender">性别</string>
+    <string name="region">地区</string>
+    <string name="profile">个性签名</string>
+    <string name="qr_code">二维码</string>
 </resources>

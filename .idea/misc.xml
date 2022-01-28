@@ -21,17 +21,24 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/selector_user.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/shape_input_bg.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_account.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_avatar.xml" value="0.27447916666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_friend.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_gender.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_home.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_homepage.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_identification.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_info.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_login.xml" value="0.30953846153846154" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_moment.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_nickname.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_dispatch.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_order_taking.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_pay.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_profile.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_qr_code.xml" value="0.26197916666666665" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_region.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_success.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_register_vertify_code.xml" value="0.26197916666666665" />

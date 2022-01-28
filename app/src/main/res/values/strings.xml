@@ -32,4 +32,11 @@
     <string name="spread">Spread</string>
     <string name="order_dispatch">Order Dispatch</string>
     <string name="order_taking">Order Taking</string>
+    <string name="avatar">Avatar</string>
+    <string name="nickname">Nick Name</string>
+    <string name="account">Account</string>
+    <string name="gender">Gender</string>
+    <string name="region">Region</string>
+    <string name="profile">Profile</string>
+    <string name="qr_code">QR Code</string>
 </resources>

@@ -73,15 +73,16 @@
                 android:layout_alignParentEnd="true"
                 android:contentDescription=""
                 android:layout_marginEnd="20dp"/>
+
             <ImageView
                 android:id="@+id/ivQrCode"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:src="@drawable/ic_qr_code"
-                android:layout_marginEnd="10dp"
                 android:layout_centerVertical="true"
+                android:layout_marginEnd="10dp"
+                android:layout_toStartOf="@id/iv_user_info_edit"
                 android:contentDescription=""
-                android:layout_toStartOf="@id/iv_user_info_edit"/>
+                android:src="@drawable/ic_qr_code" />
         </RelativeLayout>
         <com.surromo.common.widget.MTextView
             android:id="@+id/mtv_user_pay"

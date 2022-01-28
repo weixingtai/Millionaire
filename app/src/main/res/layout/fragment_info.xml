@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:skin="http://schemas.android.com/tools">
     <data>
 
     </data>
@@ -12,5 +13,142 @@
         <include
             android:id="@+id/incl_title"
             layout="@layout/include_toolbar" />
+        <RelativeLayout
+        android:id="@+id/rl_info_avatar"
+        android:layout_width="match_parent"
+        android:layout_height="88dp"
+        android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_info_avatar_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:paddingLeft="30dp"
+                android:text="@string/avatar"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold"
+                skin:enable="true" />
+
+        <ImageView
+            android:id="@+id/iv_info_avatar_right"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_arrow_right"
+            android:layout_centerVertical="true"
+            android:layout_alignParentEnd="true"
+            android:contentDescription=""
+            android:layout_marginEnd="20dp"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_user_avatar_img"
+                android:layout_width="74dp"
+                android:layout_height="74dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@id/iv_info_avatar_right"
+                android:src="@mipmap/ic_logo" />
+
+    </RelativeLayout>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_nickname"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/nickname"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:rightText="鸭梨西瓜大"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_account"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/account"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:rightText="weixingtai"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_gender"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/gender"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:rightText="男"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_region"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/region"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:rightText="美国 东谷"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_profile"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/profile"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:rightText="你是无意穿堂风，偏偏孤倨引山洪。"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <RelativeLayout
+            android:id="@+id/rl_info_qr_code"
+            android:layout_width="match_parent"
+            android:layout_height="68dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/tv_info_qr_code_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="30dp"
+                android:text="@string/qr_code"
+                android:textColor="#333333"
+                android:textSize="14sp"
+                android:textStyle="bold" />
+
+            <ImageView
+                android:id="@+id/iv_info_qr_code_right"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@drawable/ic_arrow_right"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:contentDescription=""
+                android:layout_marginEnd="20dp"/>
+
+            <com.makeramen.roundedimageview.RoundedImageView
+                android:id="@+id/riv_info_qr_code_img"
+                android:layout_width="24dp"
+                android:layout_height="24dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="5dp"
+                android:layout_toStartOf="@id/iv_info_qr_code_right"
+                android:src="@drawable/ic_qr_code" />
+
+        </RelativeLayout>
     </LinearLayout>
 </layout>
