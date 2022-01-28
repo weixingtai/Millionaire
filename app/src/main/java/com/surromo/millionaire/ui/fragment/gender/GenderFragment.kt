@@ -1,5 +1,6 @@
 package com.surromo.millionaire.ui.fragment.gender
 
+import androidx.navigation.fragment.findNavController
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.millionaire.R
 import com.surromo.millionaire.databinding.FragmentGenderBinding
@@ -13,6 +14,9 @@ import com.surromo.millionaire.databinding.FragmentGenderBinding
 class GenderFragment : BaseFragment<FragmentGenderBinding>(R.layout.fragment_gender) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.gender)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun initData() {

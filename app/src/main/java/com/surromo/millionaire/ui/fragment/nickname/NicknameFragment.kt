@@ -1,5 +1,6 @@
 package com.surromo.millionaire.ui.fragment.nickname
 
+import androidx.navigation.fragment.findNavController
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.millionaire.R
 import com.surromo.millionaire.databinding.FragmentNicknameBinding
@@ -13,6 +14,9 @@ import com.surromo.millionaire.databinding.FragmentNicknameBinding
 class NicknameFragment : BaseFragment<FragmentNicknameBinding>(R.layout.fragment_nickname) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.nickname)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun initData() {

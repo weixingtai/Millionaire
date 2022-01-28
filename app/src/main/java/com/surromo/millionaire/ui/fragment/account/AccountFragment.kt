@@ -1,5 +1,6 @@
 package com.surromo.millionaire.ui.fragment.account
 
+import androidx.navigation.fragment.findNavController
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.millionaire.R
 import com.surromo.millionaire.databinding.FragmentAccountBinding
@@ -13,6 +14,9 @@ import com.surromo.millionaire.databinding.FragmentAccountBinding
 class AccountFragment : BaseFragment<FragmentAccountBinding>(R.layout.fragment_account) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.account)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun initData() {

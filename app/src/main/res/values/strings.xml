@@ -39,4 +39,6 @@
     <string name="region">Region</string>
     <string name="profile">Profile</string>
     <string name="qr_code">QR Code</string>
+    <string name="show_setting">Show Setting</string>
+    <string name="privacy_agreement">Privacy Agreement</string>
 </resources>

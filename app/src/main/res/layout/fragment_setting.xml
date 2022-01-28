@@ -12,5 +12,27 @@
         <include
             android:id="@+id/incl_title"
             layout="@layout/include_toolbar" />
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_setting_show"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/show_setting"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
+        <com.surromo.common.widget.MTextView
+            android:id="@+id/mtv_info_gender"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="@color/white"
+            android:paddingStart="10dp"
+            android:paddingEnd="10dp"
+            app:leftText="@string/privacy_agreement"
+            app:rightImage="@drawable/ic_arrow_right"
+            app:showTopLine="true"
+            app:leftTextLeftPadding="20dp"/>
     </LinearLayout>
 </layout>

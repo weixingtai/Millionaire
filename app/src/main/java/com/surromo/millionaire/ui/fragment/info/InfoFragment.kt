@@ -15,6 +15,9 @@ import com.surromo.millionaire.databinding.FragmentUserBinding
 class InfoFragment : BaseFragment<FragmentInfoBinding>(R.layout.fragment_info) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.info)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
         binding.rlInfoAvatar.setOnClickListener {
             findNavController().navigate(R.id.action_info_to_avatar)
         }

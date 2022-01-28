@@ -1,5 +1,6 @@
 package com.surromo.millionaire.ui.fragment.avatar
 
+import androidx.navigation.fragment.findNavController
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.millionaire.R
 import com.surromo.millionaire.databinding.FragmentAvatarBinding
@@ -13,6 +14,9 @@ import com.surromo.millionaire.databinding.FragmentAvatarBinding
 class AvatarFragment : BaseFragment<FragmentAvatarBinding>(R.layout.fragment_avatar) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.avatar)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun initData() {

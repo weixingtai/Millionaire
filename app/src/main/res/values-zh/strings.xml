@@ -39,4 +39,6 @@
     <string name="region">地区</string>
     <string name="profile">个性签名</string>
     <string name="qr_code">二维码</string>
+    <string name="show_setting">显示设置</string>
+    <string name="privacy_agreement">隐私协议</string>
 </resources>

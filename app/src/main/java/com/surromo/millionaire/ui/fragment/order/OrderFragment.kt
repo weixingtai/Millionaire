@@ -1,5 +1,6 @@
 package com.surromo.millionaire.ui.fragment.order
 
+import androidx.navigation.fragment.findNavController
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.millionaire.R
 import com.surromo.millionaire.databinding.FragmentOrderBinding
@@ -13,6 +14,9 @@ import com.surromo.millionaire.databinding.FragmentOrderBinding
 class OrderFragment : BaseFragment<FragmentOrderBinding>(R.layout.fragment_order) {
     override fun initView() {
         binding.inclTitle.tvPageTitle.setText(R.string.order)
+        binding.inclTitle.toolbar.setNavigationOnClickListener {
+            findNavController().popBackStack()
+        }
     }
 
     override fun initData() {
