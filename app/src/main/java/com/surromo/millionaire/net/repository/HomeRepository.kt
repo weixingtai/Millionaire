@@ -3,9 +3,9 @@ package com.surromo.millionaire.net.repository
 import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.bean.StateLiveData
 import com.surromo.common.base.repository.BaseRepository
-import com.surromo.millionaire.bean.home.BannerData
-import com.surromo.millionaire.bean.home.OrderDispatchBean
+import com.surromo.millionaire.bean.home.*
 import com.surromo.millionaire.net.service.HomeService
+import kotlin.coroutines.coroutineContext
 
 /**
  * author : weixingtai
@@ -18,7 +18,7 @@ class HomeRepository(private val service: HomeService) : BaseRepository() {
     /**
      * 请求首页banner
      */
-    suspend fun getBanner(bannerLiveData: StateLiveData<List<BannerData>>) {
+    suspend fun getBanner(bannerLiveData: StateLiveData<MutableList<Banner>>) {
         request({ service.getBanner() }, bannerLiveData)
     }
 
@@ -33,4 +33,5 @@ class HomeRepository(private val service: HomeService) : BaseRepository() {
             isShowLoading
         )
     }
+
 }

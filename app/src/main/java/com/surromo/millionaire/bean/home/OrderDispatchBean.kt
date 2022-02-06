@@ -1,5 +1,6 @@
 package com.surromo.millionaire.bean.home
 
+import android.annotation.SuppressLint
 import android.os.Parcelable
 import kotlinx.android.parcel.Parcelize
 import java.util.*
@@ -10,19 +11,19 @@ import java.util.*
  * time  : 2022/1/24
  * desc  : TODO
  */
+@SuppressLint("ParcelCreator")
 @Parcelize
 data class OrderDispatchBean(
-
     var userImage: String,
     var userName: String,
-    var userDistance: Int,
+    var userDistance: String,
     var userProfile: String,
     var orderTitle: String,
     var orderLabel: String,
     var orderIntroduce: String,
-    var orderTime: Date,
+    var orderTime: String,
     var orderLocation: String,
-    var orderReward: Int,
+    var orderReward: String,
     var orderPayWay: String,
     var orderQuota: Int,
     var orderImage: String,

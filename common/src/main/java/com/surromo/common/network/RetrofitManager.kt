@@ -4,6 +4,7 @@ import com.franmontiel.persistentcookiejar.PersistentCookieJar
 import com.franmontiel.persistentcookiejar.cache.SetCookieCache
 import com.franmontiel.persistentcookiejar.persistence.SharedPrefsCookiePersistor
 import com.orhanobut.logger.Logger
+import com.surromo.common.network.interceptor.MockInterceptor
 import com.surromo.common.util.AppUtil
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
@@ -35,7 +36,9 @@ object RetrofitManager {
             override fun log(message: String) {
                 Logger.d(message)
             }
-        }).setLevel(HttpLoggingInterceptor.Level.BODY)).build()
+        }).setLevel(HttpLoggingInterceptor.Level.BODY))
+        .addInterceptor(MockInterceptor())
+        .build()
 
     fun <T> getService(serviceClass: Class<T>, baseUrl: String = "https://www.wanandroid.com"): T {
         return Retrofit.Builder()

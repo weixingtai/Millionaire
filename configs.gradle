@@ -42,6 +42,7 @@ dependencies {
     implementation des.quickAdapter
     implementation des.refreshLayout
     implementation des.refreshHeader
+    implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
 
     testImplementation des.junit
     androidTestImplementation des.extJunit

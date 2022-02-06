@@ -14,13 +14,6 @@ import kotlinx.coroutines.launch
  * time  : 2021/12/23
  * desc  : TODO
  */
-class UserViewModel(val repo: HomeRepository) : BaseViewModel() {
+class UserViewModel() : BaseViewModel() {
 
-    private val bannerLiveData = StateLiveData<List<BannerData>>()
-
-    fun loadBanner() {
-        viewModelScope.launch(Dispatchers.IO) {
-            repo.getBanner(bannerLiveData)
-        }
-    }
 }

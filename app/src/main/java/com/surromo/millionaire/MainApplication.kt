@@ -2,6 +2,8 @@ package com.surromo.millionaire
 
 import com.kingja.loadsir.callback.SuccessCallback
 import com.kingja.loadsir.core.LoadSir
+import com.nostra13.universalimageloader.core.ImageLoader
+import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
 import com.surromo.common.base.application.BaseApplication
 import com.surromo.common.load.EmptyCallback
 import com.surromo.common.load.ErrorCallback
@@ -25,6 +27,8 @@ class MainApplication : BaseApplication() {
 
         initLoadSir()
         initKoin()
+//        val imageLoader:ImageLoader = ImageLoader.getInstance()
+//        imageLoader.init(ImageLoaderConfiguration.createDefault(this))
     }
 
     private fun initLoadSir() {

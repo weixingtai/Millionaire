@@ -24,7 +24,7 @@
             app:showTopLine="true"
             app:leftTextLeftPadding="20dp"/>
         <com.surromo.common.widget.MTextView
-            android:id="@+id/mtv_info_gender"
+            android:id="@+id/mtv_setting_privacy"
             android:layout_width="match_parent"
             android:layout_height="58dp"
             android:background="@color/white"

@@ -17,6 +17,12 @@ class SettingFragment : BaseFragment<FragmentSettingBinding>(R.layout.fragment_s
         binding.inclTitle.toolbar.setNavigationOnClickListener {
             findNavController().popBackStack()
         }
+        binding.mtvSettingShow.setOnClickListener {
+            findNavController().navigate(R.id.action_setting_to_show)
+        }
+        binding.mtvSettingPrivacy.setOnClickListener {
+            findNavController().navigate(R.id.action_setting_to_privacy)
+        }
     }
 
     override fun initData() {

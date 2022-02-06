@@ -180,7 +180,22 @@
         android:id="@+id/nav_setting"
         android:name="com.surromo.millionaire.ui.fragment.setting.SettingFragment"
         android:label="@string/setting"
-        tools:layout="@layout/fragment_setting"/>
+        tools:layout="@layout/fragment_setting">
+        <action
+            android:id="@+id/action_setting_to_show"
+            app:destination="@id/nav_show"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+        <action
+            android:id="@+id/action_setting_to_privacy"
+            app:destination="@id/nav_privacy"
+            app:enterAnim="@anim/slide_right_in"
+            app:exitAnim="@anim/slide_left_out"
+            app:popEnterAnim="@anim/slide_left_in"
+            app:popExitAnim="@anim/slide_right_out"/>
+    </fragment>
     <fragment
         android:id="@+id/nav_spread"
         android:name="com.surromo.millionaire.ui.fragment.spread.SpreadFragment"
@@ -221,4 +236,14 @@
         android:name="com.surromo.millionaire.ui.fragment.qrcode.QrCodeFragment"
         android:label="@string/qr_code"
         tools:layout="@layout/fragment_qr_code"/>
+    <fragment
+        android:id="@+id/nav_show"
+        android:name="com.surromo.millionaire.ui.fragment.show.ShowFragment"
+        android:label="@string/show_setting"
+        tools:layout="@layout/fragment_show"/>
+    <fragment
+        android:id="@+id/nav_privacy"
+        android:name="com.surromo.millionaire.ui.fragment.privacy.PrivacyFragment"
+        android:label="@string/privacy_agreement"
+        tools:layout="@layout/fragment_privacy"/>
 </navigation>

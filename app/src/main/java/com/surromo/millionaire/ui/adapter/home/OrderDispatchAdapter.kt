@@ -17,8 +17,8 @@ class OrderDispatchAdapter(list: ArrayList<OrderDispatchBean>) :
     override fun convert(holder: BaseViewHolder, item: OrderDispatchBean) {
         item.run {
             holder.setText(R.id.tv_dispatch_user_name,userName)
-            holder.setText(R.id.tv_dispatch_user_distance,userDistance)
-            holder.setText(R.id.tv_dispatch_user_profile,userProfile)
+//            holder.setText(R.id.tv_dispatch_user_distance,userDistance)
+//            holder.setText(R.id.tv_dispatch_user_profile,userProfile)
             holder.setText(R.id.tv_dispatch_order_title,orderTitle)
             holder.setText(R.id.tv_dispatch_order_introduce,orderIntroduce)
         }

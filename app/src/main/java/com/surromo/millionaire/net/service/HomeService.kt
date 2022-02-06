@@ -2,10 +2,8 @@ package com.surromo.millionaire.net.service
 
 import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.bean.BaseResponse
-import com.surromo.millionaire.bean.home.BannerData
-import com.surromo.millionaire.bean.home.OrderDispatchBean
-import retrofit2.http.GET
-import retrofit2.http.Path
+import com.surromo.millionaire.bean.home.*
+import retrofit2.http.*
 
 /**
  * author : weixingtai
@@ -14,14 +12,15 @@ import retrofit2.http.Path
  * desc  : TODO
  */
 interface HomeService {
-    @GET("banner/json")
-    suspend fun getBanner(): BaseResponse<List<BannerData>>
+    @GET("home/banner/json")
+    suspend fun getBanner(): BaseResponse<MutableList<Banner>>
 
     /**
      * 获取首页派单内容
      */
-    @GET("surromo/order/dispatch/{page}/json")
+    @GET("home/order/dispatch/{page}/json")
     suspend fun getDispatchOrder(
         @Path("page") page: Int
     ): BaseResponse<BasePagingResponse<ArrayList<OrderDispatchBean>>>
+
 }
