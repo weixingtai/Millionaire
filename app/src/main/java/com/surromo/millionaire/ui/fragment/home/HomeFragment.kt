@@ -1,17 +1,14 @@
 package com.surromo.millionaire.ui.fragment.home
 
 import android.transition.AutoTransition
-import android.transition.TransitionManager
 import android.view.View
-import android.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.adapter.FragmentStateAdapter
 import com.google.android.material.tabs.TabLayoutMediator
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.common.network.StateObserver
 import com.surromo.millionaire.R
-import com.surromo.millionaire.bean.home.Banner
-import com.surromo.millionaire.bean.home.BannerData
+import com.surromo.millionaire.bean.home.BannerResponse
 import com.surromo.millionaire.databinding.FragmentHomeBinding
 import com.surromo.millionaire.ui.adapter.home.HomeBannerAdapter
 import com.surromo.millionaire.ui.viewmodel.home.HomeViewModel
@@ -29,7 +26,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private lateinit var mTypeList : MutableList<String>
     private var mFragmentList: MutableList<Fragment> = mutableListOf()
     private val viewModel : HomeViewModel by viewModel()
-    private val list: MutableList<Banner> = ArrayList()
+    private val list: MutableList<BannerResponse> = ArrayList()
     var homeBannerAdapter : HomeBannerAdapter = HomeBannerAdapter(list)
 
     override fun initView() {
@@ -62,8 +59,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
 
     override fun initObserve() {
         super.initObserve()
-        viewModel.bannerLiveData.observe(this, object : StateObserver<MutableList<Banner>>(null) {
-            override fun onDataChange(data: MutableList<Banner>?) {
+        viewModel.bannerLiveData.observe(this, object : StateObserver<MutableList<BannerResponse>>(null) {
+            override fun onDataChange(data: MutableList<BannerResponse>?) {
                 super.onDataChange(data)
                 //绑定banner
                 data?.let {

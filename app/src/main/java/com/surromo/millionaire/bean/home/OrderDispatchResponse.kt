@@ -13,7 +13,7 @@ import java.util.*
  */
 @SuppressLint("ParcelCreator")
 @Parcelize
-data class OrderDispatchBean(
+data class OrderDispatchResponse(
     var userImage: String,
     var userName: String,
     var userDistance: String,

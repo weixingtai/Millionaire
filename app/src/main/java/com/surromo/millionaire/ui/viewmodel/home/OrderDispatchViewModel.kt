@@ -4,7 +4,7 @@ import androidx.lifecycle.viewModelScope
 import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.bean.StateLiveData
 import com.surromo.common.base.viewmodel.BaseViewModel
-import com.surromo.millionaire.bean.home.OrderDispatchBean
+import com.surromo.millionaire.bean.home.OrderDispatchResponse
 import com.surromo.millionaire.net.repository.HomeRepository
 import kotlinx.coroutines.launch
 
@@ -17,7 +17,7 @@ import kotlinx.coroutines.launch
 
 class OrderDispatchViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
-    var orderDispatchData = StateLiveData<BasePagingResponse<ArrayList<OrderDispatchBean>>>()
+    var orderDispatchData = StateLiveData<BasePagingResponse<ArrayList<OrderDispatchResponse>>>()
 
     fun getDispatchOrder(pageNo:Int,isShowLoading : Boolean = false) {
 

@@ -3,7 +3,7 @@ package com.surromo.millionaire.ui.adapter.home
 import com.chad.library.adapter.base.BaseQuickAdapter
 import com.chad.library.adapter.base.viewholder.BaseViewHolder
 import com.surromo.millionaire.R
-import com.surromo.millionaire.bean.home.OrderDispatchBean
+import com.surromo.millionaire.bean.home.OrderDispatchResponse
 
 /**
  * author : weixingtai
@@ -11,10 +11,10 @@ import com.surromo.millionaire.bean.home.OrderDispatchBean
  * time  : 2022/1/20
  * desc  : TODO
  */
-class OrderDispatchAdapter(list: ArrayList<OrderDispatchBean>) :
-    BaseQuickAdapter<OrderDispatchBean, BaseViewHolder>(R.layout.item_order_dispatch,list) {
+class OrderDispatchAdapter(list: ArrayList<OrderDispatchResponse>) :
+    BaseQuickAdapter<OrderDispatchResponse, BaseViewHolder>(R.layout.item_order_dispatch,list) {
 
-    override fun convert(holder: BaseViewHolder, item: OrderDispatchBean) {
+    override fun convert(holder: BaseViewHolder, item: OrderDispatchResponse) {
         item.run {
             holder.setText(R.id.tv_dispatch_user_name,userName)
 //            holder.setText(R.id.tv_dispatch_user_distance,userDistance)

@@ -3,10 +3,8 @@ package com.surromo.millionaire.ui.adapter.home
 import android.view.ViewGroup
 import android.widget.ImageView
 import androidx.recyclerview.widget.RecyclerView
-import com.nostra13.universalimageloader.core.ImageLoader
-import com.nostra13.universalimageloader.core.ImageLoaderConfiguration
 import com.orhanobut.logger.Logger
-import com.surromo.millionaire.bean.home.Banner
+import com.surromo.millionaire.bean.home.BannerResponse
 import com.youth.banner.adapter.BannerAdapter
 
 /**
@@ -15,10 +13,10 @@ import com.youth.banner.adapter.BannerAdapter
  * time  : 2022/1/19
  * desc  : TODO
  */
-class HomeBannerAdapter(var bannerList: MutableList<Banner>) : BannerAdapter<Banner, HomeBannerAdapter.BannerViewHolder>(bannerList) {
+class HomeBannerAdapter(var bannerResponseList: MutableList<BannerResponse>) : BannerAdapter<BannerResponse, HomeBannerAdapter.BannerViewHolder>(bannerResponseList) {
 
-    fun addBannerList(list: MutableList<Banner>) {
-        bannerList = list
+    fun addBannerList(list: MutableList<BannerResponse>) {
+        bannerResponseList = list
     }
 
     override fun onCreateHolder(parent: ViewGroup, viewType: Int): BannerViewHolder {
@@ -28,7 +26,7 @@ class HomeBannerAdapter(var bannerList: MutableList<Banner>) : BannerAdapter<Ban
         return BannerViewHolder(imageView)
     }
 
-    override fun onBindView(holder: BannerViewHolder, bean: Banner, position: Int, size: Int) {
+    override fun onBindView(holder: BannerViewHolder, bean: BannerResponse, position: Int, size: Int) {
 //        var imageLoader: ImageLoader = ImageLoader.getInstance()
         bean.imagePath.let {
             Logger.d("HomeBannerAdapter->imagePath:$it")

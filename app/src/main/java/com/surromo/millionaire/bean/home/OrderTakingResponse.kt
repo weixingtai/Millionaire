@@ -6,5 +6,5 @@ package com.surromo.millionaire.bean.home
  * time  : 2022/1/24
  * desc  : TODO
  */
-class OrderTakingBean {
+class OrderTakingResponse {
 }

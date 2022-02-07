@@ -20,7 +20,7 @@ package com.surromo.millionaire.bean.home
 "errorMsg":""
 }
  */
-data class Banner(
+data class BannerResponse(
     var desc: String = "",
     var id: Int = 0,
     var imagePath: String = "",

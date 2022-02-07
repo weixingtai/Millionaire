@@ -8,7 +8,7 @@ import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.fragment.BaseFragment
 import com.surromo.common.network.StateObserver
 import com.surromo.millionaire.R
-import com.surromo.millionaire.bean.home.OrderDispatchBean
+import com.surromo.millionaire.bean.home.OrderDispatchResponse
 import com.surromo.millionaire.databinding.FragmentOrderDispatchBinding
 import com.surromo.millionaire.ui.adapter.home.OrderDispatchAdapter
 import com.surromo.millionaire.ui.viewmodel.home.OrderDispatchViewModel
@@ -25,7 +25,7 @@ class OrderDispatchFragment : BaseFragment<FragmentOrderDispatchBinding>(R.layou
     private val orderDispatchViewModel by viewModel<OrderDispatchViewModel>()
     private var pageNo = 1
     private lateinit var adapter: OrderDispatchAdapter
-    private lateinit var orderDispatchBean: OrderDispatchBean
+    private lateinit var orderDispatchResponse: OrderDispatchResponse
     companion object {
         fun newInstance(): OrderDispatchFragment {
             return OrderDispatchFragment()
@@ -71,8 +71,8 @@ class OrderDispatchFragment : BaseFragment<FragmentOrderDispatchBinding>(R.layou
         orderDispatchViewModel.orderDispatchData.observe(
             this,
             object :
-                StateObserver<BasePagingResponse<ArrayList<OrderDispatchBean>>>(binding.includeRv.refreshLayout) {
-                override fun onDataChange(data: BasePagingResponse<ArrayList<OrderDispatchBean>>?) {
+                StateObserver<BasePagingResponse<ArrayList<OrderDispatchResponse>>>(binding.includeRv.refreshLayout) {
+                override fun onDataChange(data: BasePagingResponse<ArrayList<OrderDispatchResponse>>?) {
                     super.onDataChange(data)
 
                     if (pageNo == 1) {

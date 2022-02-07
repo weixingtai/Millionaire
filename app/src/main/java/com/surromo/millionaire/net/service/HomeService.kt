@@ -13,7 +13,7 @@ import retrofit2.http.*
  */
 interface HomeService {
     @GET("home/banner/json")
-    suspend fun getBanner(): BaseResponse<MutableList<Banner>>
+    suspend fun getBanner(): BaseResponse<MutableList<BannerResponse>>
 
     /**
      * 获取首页派单内容
@@ -21,6 +21,6 @@ interface HomeService {
     @GET("home/order/dispatch/{page}/json")
     suspend fun getDispatchOrder(
         @Path("page") page: Int
-    ): BaseResponse<BasePagingResponse<ArrayList<OrderDispatchBean>>>
+    ): BaseResponse<BasePagingResponse<ArrayList<OrderDispatchResponse>>>
 
 }
