@@ -14,6 +14,7 @@ import java.util.*
 @SuppressLint("ParcelCreator")
 @Parcelize
 data class OrderDispatchResponse(
+    var id: Int,
     var userImage: String,
     var userName: String,
     var userDistance: String,

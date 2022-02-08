@@ -12,14 +12,17 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_input_bg.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_launcher_background.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_moment.xml" value="0.15104166666666666" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_order_pay.xml" value="0.211" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_pwd_hide.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_pwd_show.xml" value="0.278125" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_qr_code.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/ic_user_distance.xml" value="0.2045" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/selector_friend.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/selector_home.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/selector_moment.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/selector_user.xml" value="0.15104166666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/shape_input_bg.xml" value="0.278125" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/drawable/shape_list_bg.xml" value="0.2045" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/activity_main.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_account.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/app/src/main/res/layout/fragment_avatar.xml" value="0.27447916666666666" />
@@ -65,6 +68,7 @@
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_dispatch_view.xml" value="0.26197916666666665" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_empty.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_error.xml" value="0.18333333333333332" />
+        <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_label.xml" value="0.23697916666666666" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_loading.xml" value="0.18333333333333332" />
         <entry key="..\:/Work/Haiwailin/Millionaire/common/src/main/res/layout/layout_text_view.xml" value="0.26197916666666665" />
       </map>

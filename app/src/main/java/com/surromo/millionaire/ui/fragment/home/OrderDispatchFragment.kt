@@ -1,17 +1,18 @@
 package com.surromo.millionaire.ui.fragment.home
 
 import android.view.View
+import android.widget.LinearLayout
+import androidx.lifecycle.lifecycleScope
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.scwang.smart.refresh.layout.api.RefreshLayout
 import com.scwang.smart.refresh.layout.listener.OnRefreshLoadMoreListener
-import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.fragment.BaseFragment
-import com.surromo.common.network.StateObserver
 import com.surromo.millionaire.R
-import com.surromo.millionaire.bean.home.OrderDispatchResponse
 import com.surromo.millionaire.databinding.FragmentOrderDispatchBinding
 import com.surromo.millionaire.ui.adapter.home.OrderDispatchAdapter
 import com.surromo.millionaire.ui.viewmodel.home.OrderDispatchViewModel
+import kotlinx.coroutines.flow.collectLatest
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 /**
@@ -20,98 +21,44 @@ import org.koin.androidx.viewmodel.ext.android.viewModel
  * time  : 2022/1/19
  * desc  : TODO
  */
-class OrderDispatchFragment : BaseFragment<FragmentOrderDispatchBinding>(R.layout.fragment_order_dispatch) {
+class OrderDispatchFragment(var llHomeBanner: LinearLayout) : BaseFragment<FragmentOrderDispatchBinding>(R.layout.fragment_order_dispatch) {
 
     private val orderDispatchViewModel by viewModel<OrderDispatchViewModel>()
-    private var pageNo = 1
-    private lateinit var adapter: OrderDispatchAdapter
-    private lateinit var orderDispatchResponse: OrderDispatchResponse
+    private var adapter = OrderDispatchAdapter()
     companion object {
-        fun newInstance(): OrderDispatchFragment {
-            return OrderDispatchFragment()
+        fun newInstance(llHomeBanner: LinearLayout): OrderDispatchFragment {
+            return OrderDispatchFragment(llHomeBanner)
         }
     }
 
     override fun initView() {
-//        orderDispatchViewModel.login("16602196601", "123456")
-//        binding.includeRv.refreshLayout.setOnRefreshLoadMoreListener(object :
-//            OnRefreshLoadMoreListener {
-//            override fun onRefresh(refreshLayout: RefreshLayout) {
-//                pageNo = 1
-//                orderDispatchViewModel.getDispatchOrder(pageNo)
-//            }
-//
-//            override fun onLoadMore(refreshLayout: RefreshLayout) {
-//                orderDispatchViewModel.getDispatchOrder(pageNo)
-//            }
-//        })
-
+        binding.includeRv.recyclerView.adapter = adapter
         binding.includeRv.refreshLayout.setOnRefreshLoadMoreListener(object :
             OnRefreshLoadMoreListener {
             override fun onRefresh(refreshLayout: RefreshLayout) {
-                pageNo = 1
-                orderDispatchViewModel.getDispatchOrder(pageNo)
+                llHomeBanner.visibility = View.VISIBLE
+                adapter.refresh()
             }
 
             override fun onLoadMore(refreshLayout: RefreshLayout) {
-                orderDispatchViewModel.getDispatchOrder(pageNo)
+                llHomeBanner.visibility = View.GONE
+                adapter.refresh()
             }
+
         })
-        adapter = OrderDispatchAdapter(arrayListOf())
         binding.includeRv.recyclerView.layoutManager = LinearLayoutManager(context)
-        binding.includeRv.recyclerView.adapter = adapter
+        binding.includeRv.recyclerView.addItemDecoration(DividerItemDecoration(context,DividerItemDecoration.VERTICAL))
     }
 
     override fun initData() {
 
     }
 
-    override fun initObserve() {
-        super.initObserve()
-        orderDispatchViewModel.orderDispatchData.observe(
-            this,
-            object :
-                StateObserver<BasePagingResponse<ArrayList<OrderDispatchResponse>>>(binding.includeRv.refreshLayout) {
-                override fun onDataChange(data: BasePagingResponse<ArrayList<OrderDispatchResponse>>?) {
-                    super.onDataChange(data)
-
-                    if (pageNo == 1) {
-                        adapter.setList(data?.datas)
-                        binding.includeRv.refreshLayout.finishRefresh()
-                    } else {
-                        adapter.addData(data?.datas!!)
-                        binding.includeRv.refreshLayout.finishLoadMore()
-                    }
-
-                    pageNo++
-                }
-
-                override fun onReload(v: View?) {
-                }
+    override fun lazyLoadData() {
+        lifecycleScope.launchWhenCreated {
+            orderDispatchViewModel.getDispatchOrder().collectLatest {
+                adapter.submitData(it)
             }
-        )
-//        orderDispatchViewModel.orderDispatchData.observe(
-//            this,
-//            object :
-//                StateObserver<BasePagingResponse<ArrayList<OrderDispatchBean>>>(binding.includeRv.refreshLayout) {
-//                override fun onDataChange(data: BasePagingResponse<ArrayList<OrderDispatchBean>>?) {
-//                    super.onDataChange(data)
-//
-//                    if (pageNo == 1) {
-//                        data?.datas?.add(0, orderDispatchBean)
-//                        adapter.setList(data?.datas)
-//                        binding.includeRv.refreshLayout.finishRefresh()
-//                    } else {
-//                        adapter.addData(data?.datas!!)
-//                        binding.includeRv.refreshLayout.finishLoadMore()
-//                    }
-//
-//                    pageNo++
-//                }
-//
-//                override fun onReload(v: View?) {
-//                }
-//            }
-//        )
+        }
     }
 }

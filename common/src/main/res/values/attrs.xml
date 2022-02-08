@@ -35,4 +35,14 @@
         <!--左边文字左边的间距-->
         <attr name="leftTextLeftPadding" format="reference|dimension" />
     </declare-styleable>
+    <declare-styleable name="MLabel">
+        <!--左边文字-->
+        <attr name="text" format="reference|string" />
+        <!--文字颜色-->
+        <attr name="textColor" format="color|reference" />
+        <!--文字大小-->
+        <attr name="textSize" format="reference|dimension" />
+        <!--背景颜色-->
+        <attr name="bgColor" format="color|reference" />
+    </declare-styleable>
 </resources>

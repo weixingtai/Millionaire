@@ -1,9 +1,12 @@
 package com.surromo.millionaire.ui.viewmodel.home
 
+import androidx.lifecycle.viewModelScope
 import com.surromo.common.base.bean.StateLiveData
 import com.surromo.common.base.viewmodel.BaseViewModel
 import com.surromo.millionaire.bean.home.BannerResponse
 import com.surromo.millionaire.net.repository.HomeRepository
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 /**
  * author : weixingtai
@@ -14,9 +17,9 @@ import com.surromo.millionaire.net.repository.HomeRepository
 class HomeViewModel(private val repo: HomeRepository) : BaseViewModel() {
     val bannerLiveData = StateLiveData<MutableList<BannerResponse>>()
     fun loadBanner() {
-//        viewModelScope.launch(Dispatchers.IO) {
-//            repo.getBanner(bannerLiveData)
-//        }
+        viewModelScope.launch(Dispatchers.IO) {
+            repo.getBanner(bannerLiveData)
+        }
 
     }
 }

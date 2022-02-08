@@ -43,6 +43,10 @@ dependencies {
     implementation des.refreshLayout
     implementation des.refreshHeader
     implementation 'com.nostra13.universalimageloader:universal-image-loader:1.9.5'
+    //paging3
+    implementation 'androidx.paging:paging-runtime:3.1.0'
+    implementation 'androidx.paging:paging-common:3.1.0'
+    implementation 'io.coil-kt:coil:1.4.0'
 
     testImplementation des.junit
     androidTestImplementation des.extJunit

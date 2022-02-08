@@ -1,63 +1,82 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:orientation="vertical"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:layout_margin="@dimen/dp_10">
     <RelativeLayout
         android:id="@+id/rl_dispatch_user_info"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="@dimen/dp_10">
+        android:layout_height="wrap_content">
 
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/riv_dispatch_user_avatar"
-            android:layout_width="54dp"
-            android:layout_height="54dp"
+            android:layout_width="45dp"
+            android:layout_height="45dp"
             android:layout_centerVertical="true"
             android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_marginEnd="10dp"
             android:layout_marginBottom="10dp"
+            android:scaleType="center"
             android:src="@mipmap/ic_logo"
-            app:riv_corner_radius="54dp" />
+            app:riv_corner_radius="45dp"
+            app:riv_oval="true" />
 
         <TextView
             android:id="@+id/tv_dispatch_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="10dp"
             android:layout_marginTop="10dp"
             android:layout_toEndOf="@id/riv_dispatch_user_avatar"
-            android:text="牛肉馅包子" />
+            android:text="牛肉馅包子"
+            android:textColor="@color/text_main"
+            android:textSize="18sp"
+            android:textStyle="bold" />
 
         <ImageView
             android:id="@+id/iv_dispatch_user_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="15dp"
+            android:layout_marginLeft="10dp"
             android:layout_toEndOf="@id/tv_dispatch_user_name"
-            android:src="@drawable/ic_location" />
+            android:src="@drawable/ic_user_distance" />
+
         <TextView
             android:id="@+id/tv_dispatch_user_distance"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
+            android:layout_marginLeft="5dp"
+            android:layout_marginTop="15dp"
+            android:layout_toEndOf="@id/iv_dispatch_user_distance"
             android:text="0.02km"
-            android:layout_toEndOf="@id/iv_dispatch_user_distance"/>
+            android:textColor="#87C38F"
+            android:textSize="13sp" />
 
         <TextView
             android:id="@+id/tv_dispatch_user_profile"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toEndOf="@id/riv_dispatch_user_avatar"
             android:layout_below="@id/tv_dispatch_user_name"
-            android:layout_marginTop="15dp"
-            android:layout_marginStart="10dp"
+            android:layout_marginTop="5dp"
             android:layout_marginEnd="10dp"
-            android:text="要么读书，要么旅行，身体和灵魂总有一个在路上"
+            android:layout_toEndOf="@id/riv_dispatch_user_avatar"
+            android:ellipsize="end"
             android:maxLines="1"
-            android:ellipsize="end"/>
+            android:text="要么读书，要么旅行，身体和灵魂总有一个在路上"
+            android:textColor="@color/text_sub"
+            android:textSize="12sp"/>
+        <com.surromo.common.widget.MLabel
+            android:id="@+id/tv_dispatch_order_label"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="10dp"
+            android:layout_alignParentEnd="true"
+            app:text="文体"
+            app:textColor="#0FBAFA"
+            app:bgColor="#B5EBFF" />
     </RelativeLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -67,13 +86,25 @@
             android:id="@+id/tv_dispatch_order_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="重庆有点大学南门派传单"/>
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            android:textStyle="bold"
+            android:text="重庆有点大学南门派传单"
+            android:layout_margin="10dp"/>
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
         <TextView
-            android:id="@+id/tv_dispatch_order_label"
+            android:id="@+id/tv_dispatch_order_introduce"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="10dp"
-            android:text="文体"/>
+            android:layout_marginTop="5dp"
+            android:textSize="16sp"
+            android:textColor="@color/text_main"
+            android:text="明天下午在学校南门组织发传单！"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
@@ -85,71 +116,142 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:orientation="vertical">
-            <TextView
-                android:id="@+id/tv_dispatch_order_introduce"
+
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="明天下午在学校南门组织发传单！"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_time"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="10dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_order_time"/>
+                <TextView
+                    android:id="@+id/tv_dispatch_order_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/text_sub"
+                    android:text="2022/02/12 8:00"/>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="时间：2022/02/12 8:00"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_location"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_order_location"/>
+                <TextView
+                    android:id="@+id/tv_dispatch_order_location"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/text_sub"
+                    android:text="重庆市南岸区崇文路2号"/>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="地点：重庆市南岸区崇文路2号"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_reward"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_order_reward"/>
+                <TextView
+                    android:id="@+id/tv_dispatch_order_reward"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/text_sub"
+                    android:text="400"/>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="奖励：400"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_pay_way"
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_order_pay_way"/>
+                <TextView
+                    android:id="@+id/tv_dispatch_order_pay_way"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/text_sub"
+                    android:text="月结"/>
+            </LinearLayout>
+            <LinearLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="支付方式：月结"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_quota"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="名额：（9/10）"/>
+                android:orientation="horizontal"
+                android:layout_marginStart="10dp"
+                android:layout_marginTop="5dp">
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/ic_order_quota"/>
+                <TextView
+                    android:id="@+id/tv_dispatch_order_quota"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="14sp"
+                    android:layout_marginLeft="5dp"
+                    android:textColor="@color/text_sub"
+                    android:text="（9/10）"/>
+            </LinearLayout>
+
         </LinearLayout>
         <com.makeramen.roundedimageview.RoundedImageView
             android:id="@+id/riv_dispatch_order_img"
-            android:layout_width="100dp"
+            android:layout_width="150dp"
             android:layout_height="100dp"
-            android:layout_marginStart="10dp"
-            android:layout_marginTop="10dp"
-            android:layout_marginEnd="10dp"
-            android:layout_marginBottom="10dp"
-            android:src="@mipmap/ic_logo" />
+            android:layout_margin="10dp"
+            android:src="@mipmap/ic_logo"
+            android:scaleType="center"
+            app:riv_corner_radius="5dp"
+            app:riv_oval="false"/>
     </LinearLayout>
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal">
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_weight="1"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/ic_spread"/>
-            <TextView
-                android:id="@+id/tv_dispatch_order_count_down"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8:09"/>
-        </LinearLayout>
+        android:orientation="horizontal"
+        android:gravity="right">
+<!--        <LinearLayout-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_weight="1"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:orientation="horizontal">-->
+<!--            <ImageView-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:src="@drawable/ic_spread"/>-->
+<!--            <TextView-->
+<!--                android:id="@+id/tv_dispatch_order_count_down"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:text="8:09"/>-->
+<!--        </LinearLayout>-->
 
         <Button
             android:id="@+id/btn_dispatch_order_enroll"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginEnd="10dp"
+            android:layout_marginBottom="5dp"
+            android:layout_marginTop="5dp"
             android:text="报名"
             android:layout_gravity="end"/>
     </LinearLayout>

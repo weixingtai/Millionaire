@@ -3,6 +3,7 @@
     "curPage": 1,
     "datas": [
       {
+        "id": 1,
         "userImage": "",
         "userName": "鸭梨西瓜大",
         "userDistance": "0.2km",
@@ -21,6 +22,7 @@
         "isOrderFull": false
       },
       {
+        "id": 2,
         "userImage": "",
         "userName": "小坏蛋",
         "userDistance": "10.2km",
@@ -39,6 +41,7 @@
         "isOrderFull": false
       },
       {
+        "id": 3,
         "userImage": "",
         "userName": "张大仙",
         "userDistance": "7.5km",

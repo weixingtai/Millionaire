@@ -14,6 +14,7 @@ import com.surromo.millionaire.ui.adapter.home.HomeBannerAdapter
 import com.surromo.millionaire.ui.viewmodel.home.HomeViewModel
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import com.youth.banner.indicator.CircleIndicator
+import kotlinx.android.synthetic.main.fragment_home.*
 
 /**
  * author : weixingtai
@@ -27,12 +28,13 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
     private var mFragmentList: MutableList<Fragment> = mutableListOf()
     private val viewModel : HomeViewModel by viewModel()
     private val list: MutableList<BannerResponse> = ArrayList()
-    var homeBannerAdapter : HomeBannerAdapter = HomeBannerAdapter(list)
+    private var homeBannerAdapter = HomeBannerAdapter(list)
 
     override fun initView() {
         mTypeList = mutableListOf(getString(R.string.order_dispatch),getString(R.string.order_taking))
         initViewPager()
         binding.mainToolbar.inflateMenu(R.menu.top_post_menu)
+        binding.homeBanner.setAdapter(homeBannerAdapter).indicator = CircleIndicator(context)
 
         val mSet = AutoTransition()
         mSet.duration = 300
@@ -40,20 +42,10 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         binding.llHomeLocation.setOnClickListener{
             viewModel.loadBanner()
         }
-
-//        binding.discoverySv.setOnSearchClickListener {
-//            TransitionManager.beginDelayedTransition(binding.discoverySv, mSet)
-//        }
     }
 
     override fun initData() {
-//        val bean1 = Banner(R.mipmap.ic_banner_demo1,"标题")
-//        val bean2 = Banner(R.mipmap.ic_banner_demo2,"qq")
-
-//        list.add(bean1)
-//        list.add(bean2)
-
-        mFragmentList.add(OrderDispatchFragment.newInstance())
+        mFragmentList.add(OrderDispatchFragment.newInstance(binding.llHomeBanner))
         mFragmentList.add(OrderTakingFragment.newInstance())
     }
 
@@ -64,8 +56,7 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
                 super.onDataChange(data)
                 //绑定banner
                 data?.let {
-                    binding.homeBanner
-                        .setAdapter(HomeBannerAdapter(it)).indicator = CircleIndicator(context)
+                    homeBannerAdapter.setDatas(it)
                 }
             }
 
@@ -89,4 +80,8 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(R.layout.fragment_home) {
         }.attach()
     }
 
+    override fun lazyLoadData() {
+        super.lazyLoadData()
+        viewModel.loadBanner()
+    }
 }

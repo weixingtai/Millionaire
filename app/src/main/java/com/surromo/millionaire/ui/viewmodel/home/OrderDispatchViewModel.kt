@@ -1,12 +1,15 @@
 package com.surromo.millionaire.ui.viewmodel.home
 
 import androidx.lifecycle.viewModelScope
+import androidx.paging.PagingData
+import androidx.paging.cachedIn
 import com.surromo.common.base.bean.BasePagingResponse
 import com.surromo.common.base.bean.StateLiveData
 import com.surromo.common.base.viewmodel.BaseViewModel
 import com.surromo.millionaire.bean.home.OrderDispatchResponse
 import com.surromo.millionaire.net.repository.HomeRepository
 import kotlinx.coroutines.launch
+import kotlinx.coroutines.flow.Flow
 
 /**
  * author : weixingtai
@@ -17,16 +20,19 @@ import kotlinx.coroutines.launch
 
 class OrderDispatchViewModel(private val repository: HomeRepository) : BaseViewModel() {
 
-    var orderDispatchData = StateLiveData<BasePagingResponse<ArrayList<OrderDispatchResponse>>>()
+    var orderDispatchResponse = StateLiveData<BasePagingResponse<ArrayList<OrderDispatchResponse>>>()
 
-    fun getDispatchOrder(pageNo:Int,isShowLoading : Boolean = false) {
+//    fun getDispatchOrder(pageNo:Int,isShowLoading : Boolean = false) {
+//
+//        viewModelScope.launch {
+//            repository.getDispatchOrder(
+//                pageNo,
+//                orderDispatchResponse,
+//                isShowLoading
+//            )
+//        }
+//    }
 
-        viewModelScope.launch {
-            repository.getDispatchOrder(
-                pageNo,
-                orderDispatchData,
-                isShowLoading
-            )
-        }
-    }
+    fun  getDispatchOrder(): Flow<PagingData<OrderDispatchResponse>> =
+        repository.getDispatchOrder().cachedIn(viewModelScope)
 }
